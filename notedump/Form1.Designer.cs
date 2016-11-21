@@ -32,13 +32,25 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabMainMusic = new System.Windows.Forms.TabPage();
+            this.tabControlMusic = new System.Windows.Forms.TabControl();
+            this.tabMusicAll = new System.Windows.Forms.TabPage();
+            this.tabMusicPlus = new System.Windows.Forms.TabPage();
+            this.tabMainLinks = new System.Windows.Forms.TabPage();
+            this.tabControlLinks = new System.Windows.Forms.TabControl();
+            this.tabLinksAll = new System.Windows.Forms.TabPage();
+            this.tabLinksPlus = new System.Windows.Forms.TabPage();
+            this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.saveAllAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
+            this.tabMainMusic.SuspendLayout();
+            this.tabControlMusic.SuspendLayout();
+            this.tabMainLinks.SuspendLayout();
+            this.tabControlLinks.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -57,6 +69,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
+            this.saveAllAndExitToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
@@ -65,49 +78,125 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // tabControl1
+            // tabControlMain
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(16, 55);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(959, 264);
-            this.tabControl1.TabIndex = 1;
+            this.tabControlMain.Controls.Add(this.tabMainMusic);
+            this.tabControlMain.Controls.Add(this.tabMainLinks);
+            this.tabControlMain.Controls.Add(this.tabMainPlus);
+            this.tabControlMain.Location = new System.Drawing.Point(16, 55);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(959, 264);
+            this.tabControlMain.TabIndex = 1;
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabMainMusic
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(951, 231);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Music";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabMainMusic.Controls.Add(this.tabControlMusic);
+            this.tabMainMusic.Location = new System.Drawing.Point(4, 29);
+            this.tabMainMusic.Name = "tabMainMusic";
+            this.tabMainMusic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainMusic.Size = new System.Drawing.Size(951, 231);
+            this.tabMainMusic.TabIndex = 0;
+            this.tabMainMusic.Text = "Music";
+            this.tabMainMusic.UseVisualStyleBackColor = true;
+            this.tabMainMusic.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // tabPage2
+            // tabControlMusic
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1051, 231);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Links";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabControlMusic.Controls.Add(this.tabMusicAll);
+            this.tabControlMusic.Controls.Add(this.tabMusicPlus);
+            this.tabControlMusic.Location = new System.Drawing.Point(0, 0);
+            this.tabControlMusic.Name = "tabControlMusic";
+            this.tabControlMusic.SelectedIndex = 0;
+            this.tabControlMusic.Size = new System.Drawing.Size(955, 231);
+            this.tabControlMusic.TabIndex = 0;
+            // 
+            // tabMusicAll
+            // 
+            this.tabMusicAll.Location = new System.Drawing.Point(4, 29);
+            this.tabMusicAll.Name = "tabMusicAll";
+            this.tabMusicAll.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMusicAll.Size = new System.Drawing.Size(947, 198);
+            this.tabMusicAll.TabIndex = 0;
+            this.tabMusicAll.Text = "All";
+            this.tabMusicAll.UseVisualStyleBackColor = true;
+            this.tabMusicAll.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // tabMusicPlus
+            // 
+            this.tabMusicPlus.Location = new System.Drawing.Point(4, 29);
+            this.tabMusicPlus.Name = "tabMusicPlus";
+            this.tabMusicPlus.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMusicPlus.Size = new System.Drawing.Size(947, 198);
+            this.tabMusicPlus.TabIndex = 1;
+            this.tabMusicPlus.Text = "+";
+            this.tabMusicPlus.UseVisualStyleBackColor = true;
+            this.tabMusicPlus.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // tabMainLinks
+            // 
+            this.tabMainLinks.Controls.Add(this.tabControlLinks);
+            this.tabMainLinks.Location = new System.Drawing.Point(4, 29);
+            this.tabMainLinks.Name = "tabMainLinks";
+            this.tabMainLinks.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainLinks.Size = new System.Drawing.Size(951, 231);
+            this.tabMainLinks.TabIndex = 1;
+            this.tabMainLinks.Text = "Links";
+            this.tabMainLinks.UseVisualStyleBackColor = true;
+            // 
+            // tabControlLinks
+            // 
+            this.tabControlLinks.Controls.Add(this.tabLinksAll);
+            this.tabControlLinks.Controls.Add(this.tabLinksPlus);
+            this.tabControlLinks.Location = new System.Drawing.Point(-4, 0);
+            this.tabControlLinks.Name = "tabControlLinks";
+            this.tabControlLinks.SelectedIndex = 0;
+            this.tabControlLinks.Size = new System.Drawing.Size(955, 231);
+            this.tabControlLinks.TabIndex = 0;
+            // 
+            // tabLinksAll
+            // 
+            this.tabLinksAll.Location = new System.Drawing.Point(4, 29);
+            this.tabLinksAll.Name = "tabLinksAll";
+            this.tabLinksAll.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLinksAll.Size = new System.Drawing.Size(947, 198);
+            this.tabLinksAll.TabIndex = 0;
+            this.tabLinksAll.Text = "All";
+            this.tabLinksAll.UseVisualStyleBackColor = true;
+            // 
+            // tabLinksPlus
+            // 
+            this.tabLinksPlus.Location = new System.Drawing.Point(4, 29);
+            this.tabLinksPlus.Name = "tabLinksPlus";
+            this.tabLinksPlus.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLinksPlus.Size = new System.Drawing.Size(947, 198);
+            this.tabLinksPlus.TabIndex = 1;
+            this.tabLinksPlus.Text = "+";
+            this.tabLinksPlus.UseVisualStyleBackColor = true;
+            // 
+            // tabMainPlus
+            // 
+            this.tabMainPlus.Location = new System.Drawing.Point(4, 29);
+            this.tabMainPlus.Name = "tabMainPlus";
+            this.tabMainPlus.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainPlus.Size = new System.Drawing.Size(951, 231);
+            this.tabMainPlus.TabIndex = 2;
+            this.tabMainPlus.Text = "+";
+            this.tabMainPlus.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -128,6 +217,12 @@
             this.button1.Text = "Flush";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // saveAllAndExitToolStripMenuItem
+            // 
+            this.saveAllAndExitToolStripMenuItem.Name = "saveAllAndExitToolStripMenuItem";
+            this.saveAllAndExitToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.saveAllAndExitToolStripMenuItem.Text = "Save All and Exit";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -135,7 +230,7 @@
             this.ClientSize = new System.Drawing.Size(987, 447);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -144,7 +239,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlMain.ResumeLayout(false);
+            this.tabMainMusic.ResumeLayout(false);
+            this.tabControlMusic.ResumeLayout(false);
+            this.tabMainLinks.ResumeLayout(false);
+            this.tabControlLinks.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,11 +255,19 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabMainMusic;
+        private System.Windows.Forms.TabPage tabMainLinks;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tabControlMusic;
+        private System.Windows.Forms.TabPage tabMusicAll;
+        private System.Windows.Forms.TabPage tabMusicPlus;
+        private System.Windows.Forms.TabControl tabControlLinks;
+        private System.Windows.Forms.TabPage tabLinksAll;
+        private System.Windows.Forms.TabPage tabLinksPlus;
+        private System.Windows.Forms.TabPage tabMainPlus;
+        private System.Windows.Forms.ToolStripMenuItem saveAllAndExitToolStripMenuItem;
     }
 }
 

@@ -31,5 +31,27 @@ namespace notedump
         {
 
         }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControlMain.SelectedTab == tabMainPlus)
+            {
+                string title = "TabPage " + (tabControlMain.TabCount + 1).ToString();
+                TabPage createdTabPage = new TabPage(title);
+                //tabControlMain.TabPages.Add(createdTabPage);
+                tabControlMain.TabPages.Insert(tabControlMain.TabPages.Count - 1, createdTabPage);
+                tabControlMain.SelectedTab = createdTabPage;
+            }
+        }
     }
 }
