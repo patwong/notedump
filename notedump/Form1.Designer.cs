@@ -61,7 +61,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(196, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(58, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -128,30 +128,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMusic.Controls.Add(this.tabMusicAll);
             this.tabControlMusic.Controls.Add(this.tabMusicPlus);
-            this.tabControlMusic.Location = new System.Drawing.Point(-8, 0);
+            this.tabControlMusic.Location = new System.Drawing.Point(-4, 0);
             this.tabControlMusic.Name = "tabControlMusic";
             this.tabControlMusic.SelectedIndex = 0;
-            this.tabControlMusic.Size = new System.Drawing.Size(963, 235);
+            this.tabControlMusic.Size = new System.Drawing.Size(959, 235);
             this.tabControlMusic.TabIndex = 0;
             this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControlMusic_SelectedIndexChanged);
             this.tabControlMusic.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlMusic_Selecting);
+            this.tabControlMusic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMusic_MouseDoubleClick);
             // 
             // tabMusicAll
             // 
             this.tabMusicAll.Location = new System.Drawing.Point(4, 29);
             this.tabMusicAll.Name = "tabMusicAll";
             this.tabMusicAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicAll.Size = new System.Drawing.Size(955, 202);
+            this.tabMusicAll.Size = new System.Drawing.Size(951, 202);
             this.tabMusicAll.TabIndex = 0;
             this.tabMusicAll.Text = "All";
             this.tabMusicAll.UseVisualStyleBackColor = true;
+            this.tabMusicAll.Click += new System.EventHandler(this.tabMusicAll_Click);
+            this.tabMusicAll.DoubleClick += new System.EventHandler(this.tabMusicAll_DoubleClick);
             // 
             // tabMusicPlus
             // 
             this.tabMusicPlus.Location = new System.Drawing.Point(4, 29);
             this.tabMusicPlus.Name = "tabMusicPlus";
             this.tabMusicPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicPlus.Size = new System.Drawing.Size(955, 202);
+            this.tabMusicPlus.Size = new System.Drawing.Size(951, 202);
             this.tabMusicPlus.TabIndex = 1;
             this.tabMusicPlus.Text = "+";
             this.tabMusicPlus.UseVisualStyleBackColor = true;
@@ -174,10 +177,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlLinks.Controls.Add(this.tabLinksAll);
             this.tabControlLinks.Controls.Add(this.tabLinksPlus);
-            this.tabControlLinks.Location = new System.Drawing.Point(-11, 0);
+            this.tabControlLinks.Location = new System.Drawing.Point(-4, 0);
             this.tabControlLinks.Name = "tabControlLinks";
             this.tabControlLinks.SelectedIndex = 0;
-            this.tabControlLinks.Size = new System.Drawing.Size(966, 235);
+            this.tabControlLinks.Size = new System.Drawing.Size(959, 235);
             this.tabControlLinks.TabIndex = 0;
             this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControlLinks_SelectedIndexChanged);
             // 
@@ -186,7 +189,7 @@
             this.tabLinksAll.Location = new System.Drawing.Point(4, 29);
             this.tabLinksAll.Name = "tabLinksAll";
             this.tabLinksAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksAll.Size = new System.Drawing.Size(958, 202);
+            this.tabLinksAll.Size = new System.Drawing.Size(951, 202);
             this.tabLinksAll.TabIndex = 0;
             this.tabLinksAll.Text = "All";
             this.tabLinksAll.UseVisualStyleBackColor = true;
@@ -243,6 +246,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NotedumpMainForm";
             this.Text = "Notedump";
+            this.Resize += new System.EventHandler(this.NotedumpMainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControlMain.ResumeLayout(false);

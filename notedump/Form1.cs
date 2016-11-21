@@ -17,27 +17,6 @@ namespace notedump
             InitializeComponent();
         }
 
-        //Menu Strip code
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //exits without saving
-            this.Close();
-        }
-
-        private void saveAllAndExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            /**************************************************/
-            /* obviously saves all open textboxes and         */
-            /* flushes them all out to respective files       */
-            /**************************************************/
-
-            //need to include code where all open textboxes flushed out 
-            //to respective files
-            //read only textboxes?
-            //problem 1: cannot pick and choose tab to include dumped items
-            this.Close();
-        }
-
         //tab code
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -77,6 +56,27 @@ namespace notedump
             if (tabControlMusic.SelectedTab == tabMusicAll)
             {
                 Console.WriteLine("you selected Music_All");
+            }
+        }
+
+        private void tabMusicAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabMusicAll_DoubleClick(object sender, EventArgs e)
+        {
+            //doubleclicked the tab, now have it open a textbox and open a file
+        }
+
+        private void tabControlMusic_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (tabControlMusic.SelectedTab == tabMusicAll)
+            {
+                RichTextBox musicAllBox = new RichTextBox();
+                musicAllBox.Dock = DockStyle.Fill;
+                // musicAllBox.Size = tabMusicAll.Size;
+                tabMusicAll.Controls.Add(musicAllBox);
             }
         }
 

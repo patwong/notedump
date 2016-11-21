@@ -21,4 +21,7 @@ notedump change log
 	- problem: removing the code that's still referenced crashes the Form1.design
 	- soln: go to the properties/events, find where the code is referenced, delete it there
 		- then delete the code itself in the main form
--
+- separated some parts of the class into different files:
+	NotedumpMain.cs, Form1.cs (legacy), NotedumpMenuStrip.cs
+	source (can extend partial class into multiple files using "partial" keyword):
+	http://stackoverflow.com/questions/144783/c-sharp-classes-in-separate-files
