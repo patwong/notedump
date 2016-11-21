@@ -1,0 +1,24 @@
+notedump change log
+
+2016.11.18
+- added exit dialogue to "Exit" in menu strip
+	this.Close()
+	also: http://stackoverflow.com/questions/7146080/closing-applications
+	
+- anchored main tab boxes to have size maintained when program maximized
+	source: http://www.techrepublic.com/article/manage-winform-controls-using-the-anchor-and-dock-properties/
+	http://stackoverflow.com/questions/4248637/how-to-auto-resize-and-adjust-form-controls-with-change-in-resolution
+	
+	
+
+2016.11.21
+- able to create new tabs in program by selecting "+" tab
+	code source - combination of two:
+	https://msdn.microsoft.com/en-us/library/aa984280%28v=vs.71%29.aspx
+	left justifies new tab
+	http://stackoverflow.com/questions/6738126/winforms-tabcontrol-add-new-tab-button
+- cleaned out some garbage old functions
+	- problem: removing the code that's still referenced crashes the Form1.design
+	- soln: go to the properties/events, find where the code is referenced, delete it there
+		- then delete the code itself in the main form
+-

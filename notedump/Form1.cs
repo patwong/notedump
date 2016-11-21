@@ -17,38 +17,34 @@ namespace notedump
             InitializeComponent();
         }
 
+        //Menu Strip code
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //exits without saving
             this.Close();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void saveAllAndExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /**************************************************/
+            /* obviously saves all open textboxes and         */
+            /* flushes them all out to respective files       */
+            /**************************************************/
 
+            //need to include code where all open textboxes flushed out 
+            //to respective files
+            //read only textboxes?
+            //problem 1: cannot pick and choose tab to include dumped items
+            this.Close();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //tab code
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(tabControlMain.SelectedTab == tabMainPlus)
             {
-                string title = "MainTab " + (tabControlMain.TabCount + 1).ToString();
+                string title = "MainTab" + (tabControlMain.TabCount + 1).ToString();
                 TabPage createdTabPage = new TabPage(title);
-                //tabControlMain.TabPages.Add(createdTabPage);
                 tabControlMain.TabPages.Insert(tabControlMain.TabPages.Count - 1, createdTabPage);
                 tabControlMain.SelectedTab = createdTabPage;
             }
@@ -58,9 +54,8 @@ namespace notedump
         {
             if (tabControlMusic.SelectedTab == tabMusicPlus)
             {
-                string title = "MusicTab " + (tabControlMusic.TabCount + 1).ToString();
+                string title = "MusicTab" + (tabControlMusic.TabCount + 1).ToString();
                 TabPage createdTabPage = new TabPage(title);
-                //tabControlMain.TabPages.Add(createdTabPage);
                 tabControlMusic.TabPages.Insert(tabControlMusic.TabPages.Count - 1, createdTabPage);
                 tabControlMusic.SelectedTab = createdTabPage;
             }
@@ -70,12 +65,21 @@ namespace notedump
         {
             if (tabControlLinks.SelectedTab == tabLinksPlus)
             {
-                string title = "LinksTab " + (tabControlLinks.TabCount + 1).ToString();
+                string title = "LinksTab" + (tabControlLinks.TabCount + 1).ToString();
                 TabPage createdTabPage = new TabPage(title);
-                //tabControlMain.TabPages.Add(createdTabPage);
                 tabControlLinks.TabPages.Insert(tabControlLinks.TabPages.Count - 1, createdTabPage);
                 tabControlLinks.SelectedTab = createdTabPage;
             }
         }
+
+        private void tabControlMusic_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (tabControlMusic.SelectedTab == tabMusicAll)
+            {
+                Console.WriteLine("you selected Music_All");
+            }
+        }
+
+
     }
 }
