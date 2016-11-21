@@ -1,6 +1,6 @@
 ﻿namespace notedump
 {
-    partial class Form1
+    partial class NotedumpMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,8 +42,8 @@
             this.tabLinksAll = new System.Windows.Forms.TabPage();
             this.tabLinksPlus = new System.Windows.Forms.TabPage();
             this.tabMainPlus = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NDtextBox = new System.Windows.Forms.TextBox();
+            this.NDFlushButton = new System.Windows.Forms.Button();
             this.saveAllAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -78,13 +78,13 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -117,6 +117,9 @@
             // 
             // tabControlMusic
             // 
+            this.tabControlMusic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMusic.Controls.Add(this.tabMusicAll);
             this.tabControlMusic.Controls.Add(this.tabMusicPlus);
             this.tabControlMusic.Location = new System.Drawing.Point(0, 0);
@@ -124,6 +127,7 @@
             this.tabControlMusic.SelectedIndex = 0;
             this.tabControlMusic.Size = new System.Drawing.Size(955, 231);
             this.tabControlMusic.TabIndex = 0;
+            this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControlMusic_SelectedIndexChanged);
             // 
             // tabMusicAll
             // 
@@ -160,6 +164,9 @@
             // 
             // tabControlLinks
             // 
+            this.tabControlLinks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlLinks.Controls.Add(this.tabLinksAll);
             this.tabControlLinks.Controls.Add(this.tabLinksPlus);
             this.tabControlLinks.Location = new System.Drawing.Point(-4, 0);
@@ -167,6 +174,7 @@
             this.tabControlLinks.SelectedIndex = 0;
             this.tabControlLinks.Size = new System.Drawing.Size(955, 231);
             this.tabControlLinks.TabIndex = 0;
+            this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControlLinks_SelectedIndexChanged);
             // 
             // tabLinksAll
             // 
@@ -198,24 +206,24 @@
             this.tabMainPlus.Text = "+";
             this.tabMainPlus.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // NDtextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(16, 337);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(803, 98);
-            this.textBox1.TabIndex = 2;
+            this.NDtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NDtextBox.Location = new System.Drawing.Point(16, 337);
+            this.NDtextBox.Multiline = true;
+            this.NDtextBox.Name = "NDtextBox";
+            this.NDtextBox.Size = new System.Drawing.Size(803, 98);
+            this.NDtextBox.TabIndex = 2;
             // 
-            // button1
+            // NDFlushButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(854, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 80);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Flush";
-            this.button1.UseVisualStyleBackColor = true;
+            this.NDFlushButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NDFlushButton.Location = new System.Drawing.Point(854, 355);
+            this.NDFlushButton.Name = "NDFlushButton";
+            this.NDFlushButton.Size = new System.Drawing.Size(117, 80);
+            this.NDFlushButton.TabIndex = 3;
+            this.NDFlushButton.Text = "Flush";
+            this.NDFlushButton.UseVisualStyleBackColor = true;
             // 
             // saveAllAndExitToolStripMenuItem
             // 
@@ -223,18 +231,18 @@
             this.saveAllAndExitToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
             this.saveAllAndExitToolStripMenuItem.Text = "Save All and Exit";
             // 
-            // Form1
+            // NotedumpMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 447);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NDFlushButton);
+            this.Controls.Add(this.NDtextBox);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "NotedumpMainForm";
             this.Text = "Notedump";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -258,8 +266,8 @@
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabMainMusic;
         private System.Windows.Forms.TabPage tabMainLinks;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox NDtextBox;
+        private System.Windows.Forms.Button NDFlushButton;
         private System.Windows.Forms.TabControl tabControlMusic;
         private System.Windows.Forms.TabPage tabMusicAll;
         private System.Windows.Forms.TabPage tabMusicPlus;

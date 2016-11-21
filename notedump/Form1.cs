@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace notedump
 {
-    public partial class Form1 : Form
+    public partial class NotedumpMainForm : Form
     {
-        public Form1()
+        public NotedumpMainForm()
         {
             InitializeComponent();
         }
@@ -46,11 +46,35 @@ namespace notedump
         {
             if(tabControlMain.SelectedTab == tabMainPlus)
             {
-                string title = "TabPage " + (tabControlMain.TabCount + 1).ToString();
+                string title = "MainTab " + (tabControlMain.TabCount + 1).ToString();
                 TabPage createdTabPage = new TabPage(title);
                 //tabControlMain.TabPages.Add(createdTabPage);
                 tabControlMain.TabPages.Insert(tabControlMain.TabPages.Count - 1, createdTabPage);
                 tabControlMain.SelectedTab = createdTabPage;
+            }
+        }
+
+        private void tabControlMusic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlMusic.SelectedTab == tabMusicPlus)
+            {
+                string title = "MusicTab " + (tabControlMusic.TabCount + 1).ToString();
+                TabPage createdTabPage = new TabPage(title);
+                //tabControlMain.TabPages.Add(createdTabPage);
+                tabControlMusic.TabPages.Insert(tabControlMusic.TabPages.Count - 1, createdTabPage);
+                tabControlMusic.SelectedTab = createdTabPage;
+            }
+        }
+
+        private void tabControlLinks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlLinks.SelectedTab == tabLinksPlus)
+            {
+                string title = "LinksTab " + (tabControlLinks.TabCount + 1).ToString();
+                TabPage createdTabPage = new TabPage(title);
+                //tabControlMain.TabPages.Add(createdTabPage);
+                tabControlLinks.TabPages.Insert(tabControlLinks.TabPages.Count - 1, createdTabPage);
+                tabControlLinks.SelectedTab = createdTabPage;
             }
         }
     }
