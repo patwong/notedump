@@ -10,7 +10,6 @@ notedump change log
 	http://stackoverflow.com/questions/4248637/how-to-auto-resize-and-adjust-form-controls-with-change-in-resolution
 	
 	
-
 2016.11.21
 - able to create new tabs in program by selecting "+" tab
 	code source - combination of two:
@@ -21,7 +20,13 @@ notedump change log
 	- problem: removing the code that's still referenced crashes the Form1.design
 	- soln: go to the properties/events, find where the code is referenced, delete it there
 		- then delete the code itself in the main form
+- autoresize forms using "Dock"
+	http://stackoverflow.com/questions/1636280/automatic-resizing-of-the-windows-forms-controls
+- added a function for the "maximize" event
+	source: https://social.msdn.microsoft.com/Forums/en-US/d0af9856-a892-4030-abff-a550847df3a4/form-maximizeminimize-click-event?forum=winforms
 - separated some parts of the class into different files:
 	NotedumpMain.cs, Form1.cs (legacy), NotedumpMenuStrip.cs
 	source (can extend partial class into multiple files using "partial" keyword):
 	http://stackoverflow.com/questions/144783/c-sharp-classes-in-separate-files
+- started implementing richtextbox
+	- need to read and output file into box

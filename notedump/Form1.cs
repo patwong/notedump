@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,9 +75,25 @@ namespace notedump
             if (tabControlMusic.SelectedTab == tabMusicAll)
             {
                 RichTextBox musicAllBox = new RichTextBox();
+
+                //dock dynamically resizes on whatever the form does
                 musicAllBox.Dock = DockStyle.Fill;
-                // musicAllBox.Size = tabMusicAll.Size;
-                tabMusicAll.Controls.Add(musicAllBox);
+
+                //size = size only resizes to its container once
+                // musicAllBox.Size = tabMusicAll.Size; 
+
+                tabMusicAll.Controls.Add(musicAllBox); //do i need this?
+
+                //opening the textfile
+                //OpenFileDialog openMusicAllFile = new OpenFileDialog();
+                //openMusicAllFile.FileName = "music_all.txt";
+                //openMusicAllFile.Filter = "Text Files|*.txt"; //this opens dialogue box
+                //if (openMusicAllFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                //    musicAllBox.LoadFile(openMusicAllFile.FileName,
+                //    RichTextBoxStreamType.PlainText);
+                Console.WriteLine("current directory:{0}", Directory.GetCurrentDirectory());
+                Console.WriteLine("startup path: {0}", Application.StartupPath);    
+                //musicAllBox.LoadFile("music_all.txt", RichTextBoxStreamType.PlainText);
             }
         }
 
