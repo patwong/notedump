@@ -87,45 +87,9 @@ namespace notedump
 
                 tabMusicAll.Controls.Add(musicAllBox); //do i need this?
 
-                //opening the textfile
-                //OpenFileDialog openMusicAllFile = new OpenFileDialog();
-                //openMusicAllFile.FileName = "music_all.txt";
-                //openMusicAllFile.Filter = "Text Files|*.txt"; //this opens dialogue box
-                //if (openMusicAllFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                //    musicAllBox.LoadFile(openMusicAllFile.FileName,
-                //    RichTextBoxStreamType.PlainText);
-
-                //these two are the same
-                Console.WriteLine("current directory:{0}", Directory.GetCurrentDirectory());
-                Console.WriteLine("startup path: {0}", Application.StartupPath);
-
-                /*
-                 * current directory:D:\Projects\notedump\notedump\bin\Debug
-                 *  startup path: D:\Projects\notedump\notedump\bin\Debug
-                 *  D:\Projects\notedump\notedump\bin\Debug/cat
-                 * 
-                 */
-
                 //string rootdir = Application.StartupPath;
                 //rootdir = rootdir + "/cat"; //works - concats "/cat" to rootdir
                 //Console.WriteLine(rootdir);
-                string testpath = Environment.CurrentDirectory + @"\music_all.txt";
-                Console.WriteLine(testpath);
-                //string apath1 = Properties.Resources.music_all;
-                //Console.WriteLine(apath1);
-                // var txtfile = notedump.Properties.Resources.musicall1;
-
-                //String strAppPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
-                //String strFilePath = Path.Combine(strAppPath, "Resources");
-                //String txtfile = Path.Combine(strFilePath, "musicall1.txt");
-                //string[] arrlist = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-
-                //Assembly creditAssm = Assembly.GetExecutingAssembly();
-                //using (Stream creditStream =
-                //creditAssm.GetManifestResourceStream("notedump.Properties.Resources.musicall1.txt"))
-                //{
-                //    musicAllBox.LoadFile(creditStream, RichTextBoxStreamType.RichText);
-                //}
 
                 musicAllBox.Text = Properties.Resources.musicall1;
                 //musicAllBox.LoadFile(txtfile , RichTextBoxStreamType.PlainText);

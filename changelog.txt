@@ -30,3 +30,14 @@ notedump change log
 	http://stackoverflow.com/questions/144783/c-sharp-classes-in-separate-files
 - started implementing richtextbox
 	- need to read and output file into box
+
+
+2016.11.23
+- working on file I/O
+	- turning text file into a resource and accessing it as if it is on the file directory
+		- alternative: text file resource is treated as string and can be directly loaded into richtextbox
+		http://stackoverflow.com/questions/6428881/how-to-insert-a-string-into-a-richtextbox
+	- todo: save richtextbox contents to resource
+		- "Save All and Exit" flushes out content in active window and closes program
+		- save as stream, output to resource?
+-
