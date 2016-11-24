@@ -14,11 +14,22 @@ namespace notedump
 {
     public partial class NotedumpMainForm : Form
     {
-        //public string ndrootdir;
+        //figure out dynamic tab system later
+        //will hardcode important tabs first
+        
+        /*
+         * public partial class MenuTab : TabPage
+        {
+            //i do something
+        }
+        public partial class SubTab : TabPage
+        {
+            //i do something
+        }
+        */
         public NotedumpMainForm()
         {
             InitializeComponent();
-            //ndrootdir = AppDomain.CurrentDomain.BaseDirectory;
         }
 
         //tab code
@@ -93,6 +104,8 @@ namespace notedump
 
                 musicAllBox.Text = Properties.Resources.musicall1;
                 //musicAllBox.LoadFile(txtfile , RichTextBoxStreamType.PlainText);
+
+                
             }
         }
 

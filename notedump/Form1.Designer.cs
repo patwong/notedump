@@ -45,6 +45,9 @@
             this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.NDtextBox = new System.Windows.Forms.TextBox();
             this.NDFlushButton = new System.Windows.Forms.Button();
+            this.tabMainMovies = new System.Windows.Forms.TabPage();
+            this.tabLinksYT = new System.Windows.Forms.TabPage();
+            this.tabLinksArticles = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainMusic.SuspendLayout();
@@ -102,6 +105,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabMainMusic);
             this.tabControlMain.Controls.Add(this.tabMainLinks);
+            this.tabControlMain.Controls.Add(this.tabMainMovies);
             this.tabControlMain.Controls.Add(this.tabMainPlus);
             this.tabControlMain.Location = new System.Drawing.Point(16, 55);
             this.tabControlMain.Name = "tabControlMain";
@@ -123,15 +127,13 @@
             // 
             // tabControlMusic
             // 
-            this.tabControlMusic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMusic.Controls.Add(this.tabMusicAll);
             this.tabControlMusic.Controls.Add(this.tabMusicPlus);
-            this.tabControlMusic.Location = new System.Drawing.Point(-4, 0);
+            this.tabControlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlMusic.Location = new System.Drawing.Point(3, 3);
             this.tabControlMusic.Name = "tabControlMusic";
             this.tabControlMusic.SelectedIndex = 0;
-            this.tabControlMusic.Size = new System.Drawing.Size(959, 235);
+            this.tabControlMusic.Size = new System.Drawing.Size(945, 225);
             this.tabControlMusic.TabIndex = 0;
             this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControlMusic_SelectedIndexChanged);
             this.tabControlMusic.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlMusic_Selecting);
@@ -142,7 +144,7 @@
             this.tabMusicAll.Location = new System.Drawing.Point(4, 29);
             this.tabMusicAll.Name = "tabMusicAll";
             this.tabMusicAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicAll.Size = new System.Drawing.Size(951, 202);
+            this.tabMusicAll.Size = new System.Drawing.Size(937, 192);
             this.tabMusicAll.TabIndex = 0;
             this.tabMusicAll.Text = "All";
             this.tabMusicAll.UseVisualStyleBackColor = true;
@@ -154,7 +156,7 @@
             this.tabMusicPlus.Location = new System.Drawing.Point(4, 29);
             this.tabMusicPlus.Name = "tabMusicPlus";
             this.tabMusicPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicPlus.Size = new System.Drawing.Size(951, 202);
+            this.tabMusicPlus.Size = new System.Drawing.Size(937, 192);
             this.tabMusicPlus.TabIndex = 1;
             this.tabMusicPlus.Text = "+";
             this.tabMusicPlus.UseVisualStyleBackColor = true;
@@ -172,15 +174,15 @@
             // 
             // tabControlLinks
             // 
-            this.tabControlLinks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlLinks.Controls.Add(this.tabLinksAll);
+            this.tabControlLinks.Controls.Add(this.tabLinksYT);
+            this.tabControlLinks.Controls.Add(this.tabLinksArticles);
             this.tabControlLinks.Controls.Add(this.tabLinksPlus);
-            this.tabControlLinks.Location = new System.Drawing.Point(-4, 0);
+            this.tabControlLinks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlLinks.Location = new System.Drawing.Point(3, 3);
             this.tabControlLinks.Name = "tabControlLinks";
             this.tabControlLinks.SelectedIndex = 0;
-            this.tabControlLinks.Size = new System.Drawing.Size(959, 235);
+            this.tabControlLinks.Size = new System.Drawing.Size(945, 225);
             this.tabControlLinks.TabIndex = 0;
             this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControlLinks_SelectedIndexChanged);
             // 
@@ -189,7 +191,7 @@
             this.tabLinksAll.Location = new System.Drawing.Point(4, 29);
             this.tabLinksAll.Name = "tabLinksAll";
             this.tabLinksAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksAll.Size = new System.Drawing.Size(951, 202);
+            this.tabLinksAll.Size = new System.Drawing.Size(937, 192);
             this.tabLinksAll.TabIndex = 0;
             this.tabLinksAll.Text = "All";
             this.tabLinksAll.UseVisualStyleBackColor = true;
@@ -199,7 +201,7 @@
             this.tabLinksPlus.Location = new System.Drawing.Point(4, 29);
             this.tabLinksPlus.Name = "tabLinksPlus";
             this.tabLinksPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksPlus.Size = new System.Drawing.Size(958, 202);
+            this.tabLinksPlus.Size = new System.Drawing.Size(937, 192);
             this.tabLinksPlus.TabIndex = 1;
             this.tabLinksPlus.Text = "+";
             this.tabLinksPlus.UseVisualStyleBackColor = true;
@@ -232,6 +234,36 @@
             this.NDFlushButton.TabIndex = 3;
             this.NDFlushButton.Text = "Flush";
             this.NDFlushButton.UseVisualStyleBackColor = true;
+            // 
+            // tabMainMovies
+            // 
+            this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
+            this.tabMainMovies.Name = "tabMainMovies";
+            this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainMovies.Size = new System.Drawing.Size(951, 231);
+            this.tabMainMovies.TabIndex = 3;
+            this.tabMainMovies.Text = "Movies";
+            this.tabMainMovies.UseVisualStyleBackColor = true;
+            // 
+            // tabLinksYT
+            // 
+            this.tabLinksYT.Location = new System.Drawing.Point(4, 29);
+            this.tabLinksYT.Name = "tabLinksYT";
+            this.tabLinksYT.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLinksYT.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksYT.TabIndex = 2;
+            this.tabLinksYT.Text = "YouTube";
+            this.tabLinksYT.UseVisualStyleBackColor = true;
+            // 
+            // tabLinksArticles
+            // 
+            this.tabLinksArticles.Location = new System.Drawing.Point(4, 29);
+            this.tabLinksArticles.Name = "tabLinksArticles";
+            this.tabLinksArticles.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLinksArticles.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksArticles.TabIndex = 3;
+            this.tabLinksArticles.Text = "Articles";
+            this.tabLinksArticles.UseVisualStyleBackColor = true;
             // 
             // NotedumpMainForm
             // 
@@ -278,6 +310,9 @@
         private System.Windows.Forms.TabPage tabLinksPlus;
         private System.Windows.Forms.TabPage tabMainPlus;
         private System.Windows.Forms.ToolStripMenuItem saveAllAndExitToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabLinksYT;
+        private System.Windows.Forms.TabPage tabLinksArticles;
+        private System.Windows.Forms.TabPage tabMainMovies;
     }
 }
 
