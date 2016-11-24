@@ -41,13 +41,15 @@
             this.tabMainLinks = new System.Windows.Forms.TabPage();
             this.tabControlLinks = new System.Windows.Forms.TabControl();
             this.tabLinksAll = new System.Windows.Forms.TabPage();
+            this.tabLinksYT = new System.Windows.Forms.TabPage();
+            this.tabLinksArticles = new System.Windows.Forms.TabPage();
             this.tabLinksPlus = new System.Windows.Forms.TabPage();
+            this.tabMainMovies = new System.Windows.Forms.TabPage();
             this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.NDtextBox = new System.Windows.Forms.TextBox();
             this.NDFlushButton = new System.Windows.Forms.Button();
-            this.tabMainMovies = new System.Windows.Forms.TabPage();
-            this.tabLinksYT = new System.Windows.Forms.TabPage();
-            this.tabLinksArticles = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainMusic.SuspendLayout();
@@ -113,6 +115,7 @@
             this.tabControlMain.Size = new System.Drawing.Size(959, 264);
             this.tabControlMain.TabIndex = 1;
             this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
+            this.tabControlMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMain_MouseDoubleClick);
             // 
             // tabMainMusic
             // 
@@ -129,6 +132,8 @@
             // 
             this.tabControlMusic.Controls.Add(this.tabMusicAll);
             this.tabControlMusic.Controls.Add(this.tabMusicPlus);
+            this.tabControlMusic.Controls.Add(this.tabPage1);
+            this.tabControlMusic.Controls.Add(this.tabPage2);
             this.tabControlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMusic.Location = new System.Drawing.Point(3, 3);
             this.tabControlMusic.Name = "tabControlMusic";
@@ -148,8 +153,6 @@
             this.tabMusicAll.TabIndex = 0;
             this.tabMusicAll.Text = "All";
             this.tabMusicAll.UseVisualStyleBackColor = true;
-            this.tabMusicAll.Click += new System.EventHandler(this.tabMusicAll_Click);
-            this.tabMusicAll.DoubleClick += new System.EventHandler(this.tabMusicAll_DoubleClick);
             // 
             // tabMusicPlus
             // 
@@ -185,6 +188,7 @@
             this.tabControlLinks.Size = new System.Drawing.Size(945, 225);
             this.tabControlLinks.TabIndex = 0;
             this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControlLinks_SelectedIndexChanged);
+            this.tabControlLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
             // 
             // tabLinksAll
             // 
@@ -195,6 +199,27 @@
             this.tabLinksAll.TabIndex = 0;
             this.tabLinksAll.Text = "All";
             this.tabLinksAll.UseVisualStyleBackColor = true;
+            this.tabLinksAll.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMusic_MouseDoubleClick);
+            // 
+            // tabLinksYT
+            // 
+            this.tabLinksYT.Location = new System.Drawing.Point(4, 29);
+            this.tabLinksYT.Name = "tabLinksYT";
+            this.tabLinksYT.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLinksYT.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksYT.TabIndex = 2;
+            this.tabLinksYT.Text = "YouTube";
+            this.tabLinksYT.UseVisualStyleBackColor = true;
+            // 
+            // tabLinksArticles
+            // 
+            this.tabLinksArticles.Location = new System.Drawing.Point(4, 29);
+            this.tabLinksArticles.Name = "tabLinksArticles";
+            this.tabLinksArticles.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLinksArticles.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksArticles.TabIndex = 3;
+            this.tabLinksArticles.Text = "Articles";
+            this.tabLinksArticles.UseVisualStyleBackColor = true;
             // 
             // tabLinksPlus
             // 
@@ -205,6 +230,16 @@
             this.tabLinksPlus.TabIndex = 1;
             this.tabLinksPlus.Text = "+";
             this.tabLinksPlus.UseVisualStyleBackColor = true;
+            // 
+            // tabMainMovies
+            // 
+            this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
+            this.tabMainMovies.Name = "tabMainMovies";
+            this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainMovies.Size = new System.Drawing.Size(951, 231);
+            this.tabMainMovies.TabIndex = 3;
+            this.tabMainMovies.Text = "Movies";
+            this.tabMainMovies.UseVisualStyleBackColor = true;
             // 
             // tabMainPlus
             // 
@@ -234,36 +269,27 @@
             this.NDFlushButton.TabIndex = 3;
             this.NDFlushButton.Text = "Flush";
             this.NDFlushButton.UseVisualStyleBackColor = true;
+            this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick);
             // 
-            // tabMainMovies
+            // tabPage1
             // 
-            this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
-            this.tabMainMovies.Name = "tabMainMovies";
-            this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainMovies.Size = new System.Drawing.Size(951, 231);
-            this.tabMainMovies.TabIndex = 3;
-            this.tabMainMovies.Text = "Movies";
-            this.tabMainMovies.UseVisualStyleBackColor = true;
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(937, 192);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabLinksYT
+            // tabPage2
             // 
-            this.tabLinksYT.Location = new System.Drawing.Point(4, 29);
-            this.tabLinksYT.Name = "tabLinksYT";
-            this.tabLinksYT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksYT.Size = new System.Drawing.Size(937, 192);
-            this.tabLinksYT.TabIndex = 2;
-            this.tabLinksYT.Text = "YouTube";
-            this.tabLinksYT.UseVisualStyleBackColor = true;
-            // 
-            // tabLinksArticles
-            // 
-            this.tabLinksArticles.Location = new System.Drawing.Point(4, 29);
-            this.tabLinksArticles.Name = "tabLinksArticles";
-            this.tabLinksArticles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksArticles.Size = new System.Drawing.Size(937, 192);
-            this.tabLinksArticles.TabIndex = 3;
-            this.tabLinksArticles.Text = "Articles";
-            this.tabLinksArticles.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(937, 192);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // NotedumpMainForm
             // 
@@ -313,6 +339,8 @@
         private System.Windows.Forms.TabPage tabLinksYT;
         private System.Windows.Forms.TabPage tabLinksArticles;
         private System.Windows.Forms.TabPage tabMainMovies;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

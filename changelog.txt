@@ -40,4 +40,8 @@ notedump change log
 	- todo: save richtextbox contents to resource
 		- "Save All and Exit" flushes out content in active window and closes program
 		- save as stream, output to resource?
--
+
+
+2016.11.24
+- moving to hardcoded tabs instead of dynamic tab system
+- added richtextbox to all "sub"tabs by doubleclick

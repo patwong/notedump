@@ -74,11 +74,6 @@ namespace notedump
             }
         }
 
-        private void tabMusicAll_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabMusicAll_DoubleClick(object sender, EventArgs e)
         {
             //doubleclicked the tab, now have it open a textbox and open a file
@@ -86,7 +81,8 @@ namespace notedump
 
         private void tabControlMusic_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (tabControlMusic.SelectedTab == tabMusicAll)
+
+            if (tabControlMusic.SelectedTab == tabMusicAll)            
             {
                 RichTextBox musicAllBox = new RichTextBox();
 
@@ -103,12 +99,31 @@ namespace notedump
                 //Console.WriteLine(rootdir);
 
                 musicAllBox.Text = Properties.Resources.musicall1;
-                //musicAllBox.LoadFile(txtfile , RichTextBoxStreamType.PlainText);
-
-                
+                //musicAllBox.LoadFile(txtfile , RichTextBoxStreamType.PlainText);                               
             }
         }
+        private void tabSub_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TabControl eventControl = (TabControl)sender;
+            TabPage eventPage = eventControl.SelectedTab;
+            RichTextBox pageRTB = new RichTextBox();
+            eventPage.Controls.Add(pageRTB); //do i need this?
+            pageRTB.Dock = DockStyle.Fill;
+        }
 
+        private void NDFlushButton_MouseClick(object sender, MouseEventArgs e)
+        {
 
+        }
+
+        private void tabLinksAll_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("hi!");
+        }
+
+        private void tabControlMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
