@@ -50,4 +50,5 @@ notedump change log
 2016.11.25
 - changed "+" tab event handler for Main, Music, and Links to single event handler
 	- dynamic tab system is dead, code will remain for future use
-- singular richtextbox event handler created
+- singular richtextbox event handler created for Music and Links
+- movie rtb has its own event handler
