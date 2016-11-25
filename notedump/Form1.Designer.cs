@@ -142,7 +142,7 @@
             this.tabControlMusic.TabIndex = 0;
             this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlMusic.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlMusic_Selecting);
-            this.tabControlMusic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMusic_MouseDoubleClick);
+            this.tabControlMusic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
             // 
             // tabMusicAll
             // 
@@ -219,7 +219,6 @@
             this.tabLinksAll.TabIndex = 0;
             this.tabLinksAll.Text = "All";
             this.tabLinksAll.UseVisualStyleBackColor = true;
-            this.tabLinksAll.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMusic_MouseDoubleClick);
             // 
             // tabLinksYT
             // 

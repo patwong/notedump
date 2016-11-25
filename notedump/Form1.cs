@@ -75,25 +75,7 @@ namespace notedump
         {
             //doubleclicked the tab, now have it open a textbox and open a file
         }
-
-        private void tabControlMusic_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-            if (tabControlMusic.SelectedTab == tabMusicAll)            
-            {
-                RichTextBox musicAllBox = new RichTextBox();
-
-                //dock dynamically resizes on whatever the form does
-                musicAllBox.Dock = DockStyle.Fill;
-
-                //size = size only resizes to its container once
-                // musicAllBox.Size = tabMusicAll.Size; 
-
-                tabMusicAll.Controls.Add(musicAllBox); //do i need this?
-                musicAllBox.Text = Properties.Resources.musicall1;
-                //musicAllBox.LoadFile(txtfile , RichTextBoxStreamType.PlainText);                               
-            }
-        }
+        
         private void tabSub_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             TabControl eventControl = (TabControl)sender;
@@ -101,6 +83,26 @@ namespace notedump
             RichTextBox pageRTB = new RichTextBox();
             eventPage.Controls.Add(pageRTB); //do i need this?
             pageRTB.Dock = DockStyle.Fill;
+            if (tabControlMusic.SelectedTab == tabMusicAll)
+            {
+                pageRTB.Text = Properties.Resources.nd_music_all;
+            } else if (tabControlMusic.SelectedTab == tabMusicIndie)
+            {
+                pageRTB.Text = Properties.Resources.nd_music_indie;
+            } else if (tabControlMusic.SelectedTab == tabMusicMetal)
+            {
+                pageRTB.Text = Properties.Resources.nd_music_metal;
+            } else if (tabControlLinks.SelectedTab == tabLinksAll)
+            {
+                pageRTB.Text = Properties.Resources.nd_links_all;
+            } else if (tabControlLinks.SelectedTab == tabLinksArticles)
+            {
+                pageRTB.Text = Properties.Resources.nd_links_arts;
+            }
+            else if (tabControlLinks.SelectedTab == tabLinksYT)
+            {
+                pageRTB.Text = Properties.Resources.nd_links_yt;
+            }
         }
 
         private void NDFlushButton_MouseClick(object sender, MouseEventArgs e)
@@ -115,7 +117,12 @@ namespace notedump
 
         private void tabControlMain_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            if(tabControlMain.SelectedTab == tabMainMovies)
+            {
+                RichTextBox pageRTB = new RichTextBox();
+                tabMainMovies.Controls.Add(pageRTB); //do i need this?
+                pageRTB.Dock = DockStyle.Fill;
+            }
         }
     }
 }

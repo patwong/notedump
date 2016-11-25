@@ -61,11 +61,67 @@ namespace notedump.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to all links.
+        /// </summary>
+        internal static string nd_links_all {
+            get {
+                return ResourceManager.GetString("nd_links_all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to links articles.
+        /// </summary>
+        internal static string nd_links_arts {
+            get {
+                return ResourceManager.GetString("nd_links_arts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to youtube links.
+        /// </summary>
+        internal static string nd_links_yt {
+            get {
+                return ResourceManager.GetString("nd_links_yt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to movies.
+        /// </summary>
+        internal static string nd_movies {
+            get {
+                return ResourceManager.GetString("nd_movies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to hello hello!.
         /// </summary>
-        internal static string musicall1 {
+        internal static string nd_music_all {
             get {
-                return ResourceManager.GetString("musicall1", resourceCulture);
+                return ResourceManager.GetString("nd_music_all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to indie music
+        ///band1
+        ///band2.
+        /// </summary>
+        internal static string nd_music_indie {
+            get {
+                return ResourceManager.GetString("nd_music_indie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to metal band.
+        /// </summary>
+        internal static string nd_music_metal {
+            get {
+                return ResourceManager.GetString("nd_music_metal", resourceCulture);
             }
         }
     }
