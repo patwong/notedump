@@ -30,6 +30,7 @@ namespace notedump
         public NotedumpMainForm()
         {
             InitializeComponent();
+            tabControlMain.SelectedIndexChanged += new EventHandler(tabControls_SelectedIndexChanged);
         }
 
         //tab code       
@@ -38,20 +39,29 @@ namespace notedump
             bool RealSelectedTab = false;
             string tabName = "";
             TabControl tabControlEvent = (TabControl)sender;
-            if (tabControlMain.SelectedTab == tabMainPlus)
+            if (tabControlEvent == tabControlMain)
             {
-                tabName = "MainTab";
-                RealSelectedTab = true;
+                if (tabControlMain.SelectedTab == tabMainPlus)
+                {
+                    tabName = "MainTab";
+                    RealSelectedTab = true;
+                }
             }
-            else if (tabControlMusic.SelectedTab == tabMusicPlus)
+            if (tabControlEvent == tabControlMusic)
             {
-                tabName = "MusicTab";
-                RealSelectedTab = true;
+                if (tabControlMusic.SelectedTab == tabMusicPlus)
+                {
+                    tabName = "MusicTab";
+                    RealSelectedTab = true;
+                }
             }
-            else if (tabControlLinks.SelectedTab == tabLinksPlus)
+            if (tabControlEvent == tabControlLinks)
             {
-                tabName = "LinksTab";
-                RealSelectedTab = true;
+                if (tabControlLinks.SelectedTab == tabLinksPlus)
+                {
+                    tabName = "LinksTab";
+                    RealSelectedTab = true;
+                }
             }
             if (RealSelectedTab)
             {
@@ -67,7 +77,7 @@ namespace notedump
         {
             if (tabControlMusic.SelectedTab == tabMusicAll)
             {
-                Console.WriteLine("you selected Music_All");
+                MessageBox.Show("you selected Music_All");
             }
         }
 
@@ -83,25 +93,40 @@ namespace notedump
             RichTextBox pageRTB = new RichTextBox();
             eventPage.Controls.Add(pageRTB); //do i need this?
             pageRTB.Dock = DockStyle.Fill;
-            if (tabControlMusic.SelectedTab == tabMusicAll)
+            if (eventControl == tabControlMusic)
             {
-                pageRTB.Text = Properties.Resources.nd_music_all;
-            } else if (tabControlMusic.SelectedTab == tabMusicIndie)
+                if (tabControlMusic.SelectedTab == tabMusicAll)
+                {
+                    pageRTB.Text = Properties.Resources.nd_music_all;
+                }
+                else if (tabControlMusic.SelectedTab == tabMusicIndie)
+                {
+                    pageRTB.Text = Properties.Resources.nd_music_indie;
+                }
+                else if (tabControlMusic.SelectedTab == tabMusicMetal)
+                {
+                    pageRTB.Text = Properties.Resources.nd_music_metal;
+                }
+            } else if (eventControl == tabControlLinks)
+            { 
+                if (tabControlLinks.SelectedTab == tabLinksAll)
+                {
+                    pageRTB.Text = Properties.Resources.nd_links_all;
+                }
+                else if (tabControlLinks.SelectedTab == tabLinksArticles)
+                {
+                    pageRTB.Text = Properties.Resources.nd_links_arts;
+                }
+                else if (tabControlLinks.SelectedTab == tabLinksYT)
+                {
+                    pageRTB.Text = Properties.Resources.nd_links_yt;
+                }
+            } else if (eventControl == tabControlMain)
             {
-                pageRTB.Text = Properties.Resources.nd_music_indie;
-            } else if (tabControlMusic.SelectedTab == tabMusicMetal)
-            {
-                pageRTB.Text = Properties.Resources.nd_music_metal;
-            } else if (tabControlLinks.SelectedTab == tabLinksAll)
-            {
-                pageRTB.Text = Properties.Resources.nd_links_all;
-            } else if (tabControlLinks.SelectedTab == tabLinksArticles)
-            {
-                pageRTB.Text = Properties.Resources.nd_links_arts;
-            }
-            else if (tabControlLinks.SelectedTab == tabLinksYT)
-            {
-                pageRTB.Text = Properties.Resources.nd_links_yt;
+                if (tabControlMain.SelectedTab == tabMainMovies)
+                {
+                    pageRTB.Text = Properties.Resources.nd_movies;
+                }
             }
         }
 
