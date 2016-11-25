@@ -37,6 +37,8 @@
             this.tabMainMusic = new System.Windows.Forms.TabPage();
             this.tabControlMusic = new System.Windows.Forms.TabControl();
             this.tabMusicAll = new System.Windows.Forms.TabPage();
+            this.tabMusicIndie = new System.Windows.Forms.TabPage();
+            this.tabMusicMetal = new System.Windows.Forms.TabPage();
             this.tabMusicPlus = new System.Windows.Forms.TabPage();
             this.tabMainLinks = new System.Windows.Forms.TabPage();
             this.tabControlLinks = new System.Windows.Forms.TabControl();
@@ -48,8 +50,6 @@
             this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.NDtextBox = new System.Windows.Forms.TextBox();
             this.NDFlushButton = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainMusic.SuspendLayout();
@@ -114,7 +114,7 @@
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(959, 264);
             this.tabControlMain.TabIndex = 1;
-            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMain_MouseDoubleClick);
             // 
             // tabMainMusic
@@ -131,16 +131,16 @@
             // tabControlMusic
             // 
             this.tabControlMusic.Controls.Add(this.tabMusicAll);
+            this.tabControlMusic.Controls.Add(this.tabMusicIndie);
+            this.tabControlMusic.Controls.Add(this.tabMusicMetal);
             this.tabControlMusic.Controls.Add(this.tabMusicPlus);
-            this.tabControlMusic.Controls.Add(this.tabPage1);
-            this.tabControlMusic.Controls.Add(this.tabPage2);
             this.tabControlMusic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMusic.Location = new System.Drawing.Point(3, 3);
             this.tabControlMusic.Name = "tabControlMusic";
             this.tabControlMusic.SelectedIndex = 0;
             this.tabControlMusic.Size = new System.Drawing.Size(945, 225);
             this.tabControlMusic.TabIndex = 0;
-            this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControlMusic_SelectedIndexChanged);
+            this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlMusic.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlMusic_Selecting);
             this.tabControlMusic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMusic_MouseDoubleClick);
             // 
@@ -153,6 +153,26 @@
             this.tabMusicAll.TabIndex = 0;
             this.tabMusicAll.Text = "All";
             this.tabMusicAll.UseVisualStyleBackColor = true;
+            // 
+            // tabMusicIndie
+            // 
+            this.tabMusicIndie.Location = new System.Drawing.Point(4, 29);
+            this.tabMusicIndie.Name = "tabMusicIndie";
+            this.tabMusicIndie.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMusicIndie.Size = new System.Drawing.Size(937, 192);
+            this.tabMusicIndie.TabIndex = 2;
+            this.tabMusicIndie.Text = "Indie";
+            this.tabMusicIndie.UseVisualStyleBackColor = true;
+            // 
+            // tabMusicMetal
+            // 
+            this.tabMusicMetal.Location = new System.Drawing.Point(4, 29);
+            this.tabMusicMetal.Name = "tabMusicMetal";
+            this.tabMusicMetal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMusicMetal.Size = new System.Drawing.Size(937, 192);
+            this.tabMusicMetal.TabIndex = 3;
+            this.tabMusicMetal.Text = "Metal";
+            this.tabMusicMetal.UseVisualStyleBackColor = true;
             // 
             // tabMusicPlus
             // 
@@ -187,7 +207,7 @@
             this.tabControlLinks.SelectedIndex = 0;
             this.tabControlLinks.Size = new System.Drawing.Size(945, 225);
             this.tabControlLinks.TabIndex = 0;
-            this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControlLinks_SelectedIndexChanged);
+            this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
             // 
             // tabLinksAll
@@ -271,26 +291,6 @@
             this.NDFlushButton.UseVisualStyleBackColor = true;
             this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick);
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(937, 192);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(937, 192);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // NotedumpMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -339,8 +339,8 @@
         private System.Windows.Forms.TabPage tabLinksYT;
         private System.Windows.Forms.TabPage tabLinksArticles;
         private System.Windows.Forms.TabPage tabMainMovies;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabMusicIndie;
+        private System.Windows.Forms.TabPage tabMusicMetal;
     }
 }
 

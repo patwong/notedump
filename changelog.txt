@@ -45,3 +45,9 @@ notedump change log
 2016.11.24
 - moving to hardcoded tabs instead of dynamic tab system
 - added richtextbox to all "sub"tabs by doubleclick
+
+
+2016.11.25
+- changed "+" tab event handler for Main, Music, and Links to single event handler
+	- dynamic tab system is dead, code will remain for future use
+-

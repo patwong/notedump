@@ -32,39 +32,36 @@ namespace notedump
             InitializeComponent();
         }
 
-        //tab code
-        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        //tab code       
+        private void tabControls_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControlMain.SelectedTab == tabMainPlus)
+            bool RealSelectedTab = false;
+            string tabName = "";
+            TabControl tabControlEvent = (TabControl)sender;
+            if (tabControlMain.SelectedTab == tabMainPlus)
             {
-                string title = "MainTab" + (tabControlMain.TabCount + 1).ToString();
-                TabPage createdTabPage = new TabPage(title);
-                tabControlMain.TabPages.Insert(tabControlMain.TabPages.Count - 1, createdTabPage);
-                tabControlMain.SelectedTab = createdTabPage;
+                tabName = "MainTab";
+                RealSelectedTab = true;
+            }
+            else if (tabControlMusic.SelectedTab == tabMusicPlus)
+            {
+                tabName = "MusicTab";
+                RealSelectedTab = true;
+            }
+            else if (tabControlLinks.SelectedTab == tabLinksPlus)
+            {
+                tabName = "LinksTab";
+                RealSelectedTab = true;
+            }
+            if (RealSelectedTab)
+            {
+                tabName = tabName + (tabControlEvent.TabCount + 1).ToString();
+                TabPage createdTabPage = new TabPage(tabName);
+                tabControlEvent.TabPages.Insert(tabControlEvent.TabPages.Count - 1, createdTabPage);
+                tabControlEvent.SelectedTab = createdTabPage;
             }
         }
 
-        private void tabControlMusic_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControlMusic.SelectedTab == tabMusicPlus)
-            {
-                string title = "MusicTab" + (tabControlMusic.TabCount + 1).ToString();
-                TabPage createdTabPage = new TabPage(title);
-                tabControlMusic.TabPages.Insert(tabControlMusic.TabPages.Count - 1, createdTabPage);
-                tabControlMusic.SelectedTab = createdTabPage;
-            }
-        }
-
-        private void tabControlLinks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControlLinks.SelectedTab == tabLinksPlus)
-            {
-                string title = "LinksTab" + (tabControlLinks.TabCount + 1).ToString();
-                TabPage createdTabPage = new TabPage(title);
-                tabControlLinks.TabPages.Insert(tabControlLinks.TabPages.Count - 1, createdTabPage);
-                tabControlLinks.SelectedTab = createdTabPage;
-            }
-        }
 
         private void tabControlMusic_Selecting(object sender, TabControlCancelEventArgs e)
         {
@@ -93,11 +90,6 @@ namespace notedump
                 // musicAllBox.Size = tabMusicAll.Size; 
 
                 tabMusicAll.Controls.Add(musicAllBox); //do i need this?
-
-                //string rootdir = Application.StartupPath;
-                //rootdir = rootdir + "/cat"; //works - concats "/cat" to rootdir
-                //Console.WriteLine(rootdir);
-
                 musicAllBox.Text = Properties.Resources.musicall1;
                 //musicAllBox.LoadFile(txtfile , RichTextBoxStreamType.PlainText);                               
             }
