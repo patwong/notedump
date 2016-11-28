@@ -103,44 +103,88 @@ namespace notedump
                 if (tabControlMusic.SelectedTab == tabMusicAll)
                 {
                     pageRTB.Text = Properties.Resources.nd_music_all;
+                    nd_a_music_all = true;
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
                     pageRTB.Text = Properties.Resources.nd_music_indie;
+                    nd_a_music_ind = true;
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
                     pageRTB.Text = Properties.Resources.nd_music_metal;
+                    nd_a_music_met = true;
                 }
             } else if (eventControl == tabControlLinks)
             {
                 if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
                     pageRTB.Text = Properties.Resources.nd_links_all;
+                    nd_a_links_all = true;
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
                     pageRTB.Text = Properties.Resources.nd_links_arts;
+                    nd_a_links_art = true;
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
                     pageRTB.Text = Properties.Resources.nd_links_yt;
+                    nd_a_links_yt = true;
                 }
             } else if (eventControl == tabControlTD)
             {
                 if (tabControlTD.SelectedTab == tabTDRemind)
                 {
                     pageRTB.Text = Properties.Resources.nd_td_remind;
+                    nd_a_td_rem = true;
                 } else if (tabControlTD.SelectedTab == tabTDTD)
                 {
                     pageRTB.Text = Properties.Resources.nd_td_td;
+                    nd_a_td_td = true;
                 }
             }
         }
 
         private void NDFlushButton_MouseClick(object sender, MouseEventArgs e)
         {
-            //MessageBox.Show("flush!"); //confirms that clicking button works
+            //event handler for mouse click on Flush button
+            Console.WriteLine("flush!"); //confirms that clicking button works
+            if(nd_a_movies) //checks if "Movies" RTB is active
+            {
+                //find tabobject for tabLinksAll
+                //save rtb
+                //RichTextBox pageRTB = null;
+                //Console.WriteLine(tabMainMovies.Controls.ToString());
+                /*
+                if (tabMainMovies.Controls.Contains(pageRTB))
+                {
+                    Console.WriteLine("movies rtb exists!");
+                }
+                */
+                //RichTextBox prtb = tabMainMovies.Controls.Find("pageRTB", true).FirstOrDefault() as RichTextBox;
+                //prtb.Text = "hello movies rtb!!!";
+                int asdf = tabMainMovies.Controls.Count;
+                Console.WriteLine(asdf); //1
+                Control[] rtb = tabMainMovies.Controls.Find("pageRTB", true);
+                Console.WriteLine(rtb.Length); //0
+                foreach(Control c in tabMainMovies.Controls)
+                {
+                    if (c is RichTextBox)
+                    {
+                        Console.WriteLine("c is rtb!");//this works!!!!!
+                    }
+                }//hello!
+
+                //Control[] c = tabMainMovies.Controls;
+                //RichTextBox rtb2 = (RichTextBox) rtb[0];
+
+                //foreach(Control in )
+                //Control[] tmm = tabMainMovies.Controls.Find("pageRTB", true);
+                //Console.WriteLine( tmm.Length());
+                //if(tabMainMovies.Controls.Contains(pageRTB))
+                //    Console.WriteLine("movies rtb exists");
+            }
 
         }
 
@@ -152,6 +196,7 @@ namespace notedump
                 tabMainMovies.Controls.Add(pageRTB); //do i need this?
                 pageRTB.Dock = DockStyle.Fill;
                 pageRTB.Text = Properties.Resources.nd_movies;
+                nd_a_movies = true;
             }
         }
     }

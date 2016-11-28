@@ -52,3 +52,9 @@ notedump change log
 	- dynamic tab system is dead, code will remain for future use
 - singular richtextbox event handler created for Music and Links
 - movie rtb has its own event handler
+
+
+2016.11.28
+- "to do" tab and "to do" + "reminders" subtabs created
+- attached rtb event handler to "to do" mouse doubleclick
+- temporarily turning "Flush" button into RTB resource saver
