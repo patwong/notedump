@@ -124,5 +124,23 @@ namespace notedump.Properties {
                 return ResourceManager.GetString("nd_music_metal", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to do: reminders.
+        /// </summary>
+        internal static string nd_td_remind {
+            get {
+                return ResourceManager.GetString("nd_td_remind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to do: to do.
+        /// </summary>
+        internal static string nd_td_td {
+            get {
+                return ResourceManager.GetString("nd_td_td", resourceCulture);
+            }
+        }
     }
 }

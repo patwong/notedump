@@ -35,6 +35,8 @@ namespace notedump
         //tab code       
         private void tabControls_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //event handler for when selected tab changes
+            //used to create new tab
             bool RealSelectedTab = false;
             string tabName = "";
             TabControl tabControlEvent = (TabControl)sender;
@@ -76,7 +78,9 @@ namespace notedump
         {
             if (tabControlMusic.SelectedTab == tabMusicAll)
             {
-                MessageBox.Show("you selected Music_All");
+                //remember to make Console/output window visible to see messages
+                Console.WriteLine("you selected music_all");
+                //MessageBox.Show("you selected Music_All"); //annoying
             }
         }
 
@@ -87,6 +91,8 @@ namespace notedump
         
         private void tabSub_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            //main event handler for mouse doubleclick of a "sub" tab
+            //used to create new RichTextBox for the subtab
             TabControl eventControl = (TabControl)sender;
             TabPage eventPage = eventControl.SelectedTab;
             RichTextBox pageRTB = new RichTextBox();
@@ -106,7 +112,7 @@ namespace notedump
                 {
                     pageRTB.Text = Properties.Resources.nd_music_metal;
                 }
-            } if (eventControl == tabControlLinks)
+            } else if (eventControl == tabControlLinks)
             {
                 if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
@@ -120,11 +126,21 @@ namespace notedump
                 {
                     pageRTB.Text = Properties.Resources.nd_links_yt;
                 }
+            } else if (eventControl == tabControlTD)
+            {
+                if (tabControlTD.SelectedTab == tabTDRemind)
+                {
+                    pageRTB.Text = Properties.Resources.nd_td_remind;
+                } else if (tabControlTD.SelectedTab == tabTDTD)
+                {
+                    pageRTB.Text = Properties.Resources.nd_td_td;
+                }
             }
         }
 
         private void NDFlushButton_MouseClick(object sender, MouseEventArgs e)
         {
+            //MessageBox.Show("flush!"); //confirms that clicking button works
 
         }
 

@@ -34,6 +34,10 @@
             this.saveAllAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabMainTD = new System.Windows.Forms.TabPage();
+            this.tabControlTD = new System.Windows.Forms.TabControl();
+            this.tabTDRemind = new System.Windows.Forms.TabPage();
+            this.tabTDTD = new System.Windows.Forms.TabPage();
             this.tabMainMusic = new System.Windows.Forms.TabPage();
             this.tabControlMusic = new System.Windows.Forms.TabControl();
             this.tabMusicAll = new System.Windows.Forms.TabPage();
@@ -52,6 +56,8 @@
             this.NDFlushButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
+            this.tabMainTD.SuspendLayout();
+            this.tabControlTD.SuspendLayout();
             this.tabMainMusic.SuspendLayout();
             this.tabControlMusic.SuspendLayout();
             this.tabMainLinks.SuspendLayout();
@@ -105,6 +111,7 @@
             this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlMain.Controls.Add(this.tabMainTD);
             this.tabControlMain.Controls.Add(this.tabMainMusic);
             this.tabControlMain.Controls.Add(this.tabMainLinks);
             this.tabControlMain.Controls.Add(this.tabMainMovies);
@@ -116,6 +123,49 @@
             this.tabControlMain.TabIndex = 1;
             this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMain_MouseDoubleClick);
+            // 
+            // tabMainTD
+            // 
+            this.tabMainTD.Controls.Add(this.tabControlTD);
+            this.tabMainTD.Location = new System.Drawing.Point(4, 29);
+            this.tabMainTD.Name = "tabMainTD";
+            this.tabMainTD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainTD.Size = new System.Drawing.Size(951, 231);
+            this.tabMainTD.TabIndex = 4;
+            this.tabMainTD.Text = "To Do";
+            this.tabMainTD.UseVisualStyleBackColor = true;
+            // 
+            // tabControlTD
+            // 
+            this.tabControlTD.Controls.Add(this.tabTDRemind);
+            this.tabControlTD.Controls.Add(this.tabTDTD);
+            this.tabControlTD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlTD.Location = new System.Drawing.Point(3, 3);
+            this.tabControlTD.Name = "tabControlTD";
+            this.tabControlTD.SelectedIndex = 0;
+            this.tabControlTD.Size = new System.Drawing.Size(945, 225);
+            this.tabControlTD.TabIndex = 0;
+            this.tabControlTD.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
+            // 
+            // tabTDRemind
+            // 
+            this.tabTDRemind.Location = new System.Drawing.Point(4, 29);
+            this.tabTDRemind.Name = "tabTDRemind";
+            this.tabTDRemind.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTDRemind.Size = new System.Drawing.Size(937, 192);
+            this.tabTDRemind.TabIndex = 0;
+            this.tabTDRemind.Text = "Reminders";
+            this.tabTDRemind.UseVisualStyleBackColor = true;
+            // 
+            // tabTDTD
+            // 
+            this.tabTDTD.Location = new System.Drawing.Point(4, 29);
+            this.tabTDTD.Name = "tabTDTD";
+            this.tabTDTD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTDTD.Size = new System.Drawing.Size(937, 192);
+            this.tabTDTD.TabIndex = 1;
+            this.tabTDTD.Text = "To Do";
+            this.tabTDTD.UseVisualStyleBackColor = true;
             // 
             // tabMainMusic
             // 
@@ -307,6 +357,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
+            this.tabMainTD.ResumeLayout(false);
+            this.tabControlTD.ResumeLayout(false);
             this.tabMainMusic.ResumeLayout(false);
             this.tabControlMusic.ResumeLayout(false);
             this.tabMainLinks.ResumeLayout(false);
@@ -340,6 +392,10 @@
         private System.Windows.Forms.TabPage tabMainMovies;
         private System.Windows.Forms.TabPage tabMusicIndie;
         private System.Windows.Forms.TabPage tabMusicMetal;
+        private System.Windows.Forms.TabPage tabMainTD;
+        private System.Windows.Forms.TabControl tabControlTD;
+        private System.Windows.Forms.TabPage tabTDRemind;
+        private System.Windows.Forms.TabPage tabTDTD;
     }
 }
 
