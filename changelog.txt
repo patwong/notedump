@@ -58,3 +58,7 @@ notedump change log
 - "to do" tab and "to do" + "reminders" subtabs created
 - attached rtb event handler to "to do" mouse doubleclick
 - temporarily turning "Flush" button into RTB resource saver
+
+
+2016.11.29
+- in process of outputting rtb contents to associated resource file

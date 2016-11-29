@@ -162,21 +162,20 @@ namespace notedump
             {
                 //find tabobject for tabLinksAll
                 //save rtb
-                //RichTextBox pageRTB = null;
-                //Console.WriteLine(tabMainMovies.Controls.ToString());
-                /*
-                if (tabMainMovies.Controls.Contains(pageRTB))
-                {
-                    Console.WriteLine("movies rtb exists!");
-                }
-                */
-                //RichTextBox prtb = tabMainMovies.Controls.Find("pageRTB", true).FirstOrDefault() as RichTextBox;
-                //prtb.Text = "hello movies rtb!!!";
-                int asdf = tabMainMovies.Controls.Count;
-                Console.WriteLine(asdf); //1
+                
+                //int asdf = tabMainMovies.Controls.Count;
+                //Console.WriteLine(asdf); //1
                 Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
-                Console.WriteLine(rtb.Length); //0
-                foreach(Control c in tabMainMovies.Controls)
+                Console.WriteLine(rtb.Length); //1
+                
+                //this works
+                RichTextBox rtb69 = (RichTextBox)rtb[0];
+                //Console.WriteLine(rtb69.Text + " hello!!!");
+
+                //also works to get the rtb control
+                //each tab page only has one control attached - the rtb
+                /*
+                foreach (Control c in tabMainMovies.Controls)
                 {
                     if (c is RichTextBox)
                     {
@@ -184,17 +183,8 @@ namespace notedump
                         Console.WriteLine(c.Name);
                     } 
                 }
-                RichTextBox rtb69 = (RichTextBox) rtb[0];
-                Console.WriteLine(rtb69.Text+" hello!!!");
+                */
 
-                //Control[] c = tabMainMovies.Controls;
-                //RichTextBox rtb2 = (RichTextBox) rtb[0];
-
-                //foreach(Control in )
-                //Control[] tmm = tabMainMovies.Controls.Find("pageRTB", true);
-                //Console.WriteLine( tmm.Length());
-                //if(tabMainMovies.Controls.Contains(pageRTB))
-                //    Console.WriteLine("movies rtb exists");
             }
 
         }
@@ -211,5 +201,6 @@ namespace notedump
                 nd_a_movies = true;
             }
         }
+
     }
 }

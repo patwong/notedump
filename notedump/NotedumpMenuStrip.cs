@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +32,22 @@ namespace notedump
             //exits without saving
             this.Close();
         }
+        private void menuStrip_saveAll_Click(object sender, EventArgs e)
+        {
+            //event for when "Save All" is clicked
+            if (nd_a_movies) //checks if "Movies" RTB is active
+            {
+                //find tabobject for tabMainMovies
+                //save rtb
 
+                Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
+                Console.WriteLine(rtb.Length); //1
+
+                //this works
+                RichTextBox rtb69 = (RichTextBox)rtb[0];
+
+            }
+        }
         private void saveAllAndExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             /**************************************************/
@@ -46,6 +63,23 @@ namespace notedump
             {
                 MessageBox.Show("links_all activated!");
             }
+            if (nd_a_movies) //checks if "Movies" RTB is active
+            {
+                //find tabobject for tabMainMovies
+                //save rtb
+
+                Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
+                Console.WriteLine(rtb.Length); //1
+
+                //this works
+                RichTextBox rtb69 = (RichTextBox)rtb[0];
+                Console.WriteLine(rtb69.Text); //confirming contents of rtb
+                using (StreamWriter outputFile = new StreamWriter(Properties.Resources.nd_movies))
+                {
+                    outputFile.Write(rtb69.Text);
+                }
+            }
+            Console.WriteLine(Properties.Resources.nd_movies);//movies remains unchanged
             this.Close();
         }
     }

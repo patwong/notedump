@@ -30,9 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAllAndExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStrip_open = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStrip_saveAllExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabMainTD = new System.Windows.Forms.TabPage();
             this.tabControlTD = new System.Windows.Forms.TabControl();
@@ -54,6 +54,7 @@
             this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.NDtextBox = new System.Windows.Forms.TextBox();
             this.NDFlushButton = new System.Windows.Forms.Button();
+            this.MenuStrip_saveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainTD.SuspendLayout();
@@ -72,39 +73,40 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(58, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(196, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.saveAllAndExitToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.MenuStrip_open,
+            this.MenuStrip_saveAll,
+            this.MenuStrip_saveAllExit,
+            this.MenuStrip_exit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // openToolStripMenuItem
+            // MenuStrip_open
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
-            this.openToolStripMenuItem.Text = "Open";
+            this.MenuStrip_open.Name = "MenuStrip_open";
+            this.MenuStrip_open.Size = new System.Drawing.Size(226, 30);
+            this.MenuStrip_open.Text = "Open";
             // 
-            // saveAllAndExitToolStripMenuItem
+            // MenuStrip_saveAllExit
             // 
-            this.saveAllAndExitToolStripMenuItem.Name = "saveAllAndExitToolStripMenuItem";
-            this.saveAllAndExitToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
-            this.saveAllAndExitToolStripMenuItem.Text = "Save All and Exit";
-            this.saveAllAndExitToolStripMenuItem.Click += new System.EventHandler(this.saveAllAndExitToolStripMenuItem_Click);
+            this.MenuStrip_saveAllExit.Name = "MenuStrip_saveAllExit";
+            this.MenuStrip_saveAllExit.Size = new System.Drawing.Size(226, 30);
+            this.MenuStrip_saveAllExit.Text = "Save All and Exit";
+            this.MenuStrip_saveAllExit.Click += new System.EventHandler(this.saveAllAndExitToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // MenuStrip_exit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.MenuStrip_exit.Name = "MenuStrip_exit";
+            this.MenuStrip_exit.Size = new System.Drawing.Size(226, 30);
+            this.MenuStrip_exit.Text = "Exit";
+            this.MenuStrip_exit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // tabControlMain
             // 
@@ -340,6 +342,13 @@
             this.NDFlushButton.UseVisualStyleBackColor = true;
             this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick);
             // 
+            // MenuStrip_saveAll
+            // 
+            this.MenuStrip_saveAll.Name = "MenuStrip_saveAll";
+            this.MenuStrip_saveAll.Size = new System.Drawing.Size(226, 30);
+            this.MenuStrip_saveAll.Text = "Save All";
+            this.MenuStrip_saveAll.Click += new System.EventHandler(this.menuStrip_saveAll_Click);
+            // 
             // NotedumpMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -372,8 +381,8 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuStrip_open;
+        private System.Windows.Forms.ToolStripMenuItem MenuStrip_exit;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabMainMusic;
         private System.Windows.Forms.TabPage tabMainLinks;
@@ -386,7 +395,7 @@
         private System.Windows.Forms.TabPage tabLinksAll;
         private System.Windows.Forms.TabPage tabLinksPlus;
         private System.Windows.Forms.TabPage tabMainPlus;
-        private System.Windows.Forms.ToolStripMenuItem saveAllAndExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuStrip_saveAllExit;
         private System.Windows.Forms.TabPage tabLinksYT;
         private System.Windows.Forms.TabPage tabLinksArticles;
         private System.Windows.Forms.TabPage tabMainMovies;
@@ -396,6 +405,7 @@
         private System.Windows.Forms.TabControl tabControlTD;
         private System.Windows.Forms.TabPage tabTDRemind;
         private System.Windows.Forms.TabPage tabTDTD;
+        private System.Windows.Forms.ToolStripMenuItem MenuStrip_saveAll;
     }
 }
 
