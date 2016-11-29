@@ -96,22 +96,25 @@ namespace notedump
             TabControl eventControl = (TabControl)sender;
             TabPage eventPage = eventControl.SelectedTab;
             RichTextBox pageRTB = new RichTextBox();
-            eventPage.Controls.Add(pageRTB); //do i need this?
+            eventPage.Controls.Add(pageRTB);
             pageRTB.Dock = DockStyle.Fill;
             if (eventControl == tabControlMusic)
             {
                 if (tabControlMusic.SelectedTab == tabMusicAll)
                 {
+                    pageRTB.Name = "pageRTB_music_all";
                     pageRTB.Text = Properties.Resources.nd_music_all;
                     nd_a_music_all = true;
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
+                    pageRTB.Name = "pageRTB_music_ind";
                     pageRTB.Text = Properties.Resources.nd_music_indie;
                     nd_a_music_ind = true;
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
+                    pageRTB.Name = "pageRTB_music_met";
                     pageRTB.Text = Properties.Resources.nd_music_metal;
                     nd_a_music_met = true;
                 }
@@ -119,16 +122,19 @@ namespace notedump
             {
                 if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
+                    pageRTB.Name = "pageRTB_links_all";
                     pageRTB.Text = Properties.Resources.nd_links_all;
                     nd_a_links_all = true;
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
+                    pageRTB.Name = "pageRTB_links_art";
                     pageRTB.Text = Properties.Resources.nd_links_arts;
                     nd_a_links_art = true;
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
+                    pageRTB.Name = "pageRTB_links_yt";
                     pageRTB.Text = Properties.Resources.nd_links_yt;
                     nd_a_links_yt = true;
                 }
@@ -136,10 +142,12 @@ namespace notedump
             {
                 if (tabControlTD.SelectedTab == tabTDRemind)
                 {
+                    pageRTB.Name = "pageRTB_td_rem";
                     pageRTB.Text = Properties.Resources.nd_td_remind;
                     nd_a_td_rem = true;
                 } else if (tabControlTD.SelectedTab == tabTDTD)
                 {
+                    pageRTB.Name = "pageRTB_td_td";
                     pageRTB.Text = Properties.Resources.nd_td_td;
                     nd_a_td_td = true;
                 }
@@ -166,15 +174,18 @@ namespace notedump
                 //prtb.Text = "hello movies rtb!!!";
                 int asdf = tabMainMovies.Controls.Count;
                 Console.WriteLine(asdf); //1
-                Control[] rtb = tabMainMovies.Controls.Find("pageRTB", true);
+                Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
                 Console.WriteLine(rtb.Length); //0
                 foreach(Control c in tabMainMovies.Controls)
                 {
                     if (c is RichTextBox)
                     {
                         Console.WriteLine("c is rtb!");//this works!!!!!
-                    }
-                }//hello!
+                        Console.WriteLine(c.Name);
+                    } 
+                }
+                RichTextBox rtb69 = (RichTextBox) rtb[0];
+                Console.WriteLine(rtb69.Text+" hello!!!");
 
                 //Control[] c = tabMainMovies.Controls;
                 //RichTextBox rtb2 = (RichTextBox) rtb[0];
@@ -193,6 +204,7 @@ namespace notedump
             if(tabControlMain.SelectedTab == tabMainMovies)
             {
                 RichTextBox pageRTB = new RichTextBox();
+                pageRTB.Name = "pageRTB_movies";
                 tabMainMovies.Controls.Add(pageRTB); //do i need this?
                 pageRTB.Dock = DockStyle.Fill;
                 pageRTB.Text = Properties.Resources.nd_movies;
