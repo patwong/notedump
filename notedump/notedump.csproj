@@ -92,14 +92,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="nd_links_all.txt" />
-    <Content Include="nd_links_arts.txt" />
-    <Content Include="nd_links_yt.txt" />
-    <Content Include="nd_movies.txt" />
-    <Content Include="nd_music_indie.txt" />
-    <Content Include="nd_music_metal.txt" />
-    <Content Include="nd_td_remind.txt" />
-    <Content Include="nd_td_td.txt" />
+    <Content Include="nd_links_all.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_links_arts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_links_yt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_movies.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_music_indie.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_music_metal.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_td_remind.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nd_td_td.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

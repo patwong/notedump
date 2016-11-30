@@ -73,11 +73,16 @@ namespace notedump
 
                 //this works
                 RichTextBox rtb69 = (RichTextBox)rtb[0];
+                Console.WriteLine("!!confirm start!!");
                 Console.WriteLine(rtb69.Text); //confirming contents of rtb
+                Console.WriteLine("!!confirm end!!");
+                /*
                 using (StreamWriter outputFile = new StreamWriter(Properties.Resources.nd_movies))
                 {
                     outputFile.Write(rtb69.Text);
                 }
+                */
+                rtb69.SaveFile(notedump.Properties.Resources.nd_movies, RichTextBoxStreamType.PlainText);
             }
             Console.WriteLine(Properties.Resources.nd_movies);//movies remains unchanged
             this.Close();

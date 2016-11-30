@@ -158,7 +158,17 @@ namespace notedump
         {
             //event handler for mouse click on Flush button
             Console.WriteLine("flush!"); //confirms that clicking button works
-            if(nd_a_movies) //checks if "Movies" RTB is active
+            var auxList = System.Reflection.Assembly.GetExecutingAssembly().GetManifes‌​tResourceNames();
+            Console.WriteLine(auxList.Length);
+            foreach(string c in auxList)
+            {
+                Console.WriteLine(c);
+            }
+            /*
+                notedump.NotedumpMainForm.resources
+                notedump.Properties.Resources.resources
+            */
+            if (nd_a_movies) //checks if "Movies" RTB is active
             {
                 //find tabobject for tabLinksAll
                 //save rtb
@@ -193,10 +203,30 @@ namespace notedump
         {
             if(tabControlMain.SelectedTab == tabMainMovies)
             {
+                //Assembly _assembly;
+                //StreamReader _textStreamReader;
+                //try
+                //{
+                //    _assembly = Assembly.GetExecutingAssembly();
+                //    _textStreamReader = new StreamReader(_assembly.GetManifestResourceStream("notedump.nd_movies.txt"));
+                //}
+                //catch
+                //{
+                //    MessageBox.Show("error accessing resources!");
+                //}
                 RichTextBox pageRTB = new RichTextBox();
                 pageRTB.Name = "pageRTB_movies";
                 tabMainMovies.Controls.Add(pageRTB); //do i need this?
                 pageRTB.Dock = DockStyle.Fill;
+                /*
+                try
+                {
+                    pageRTB.Text = _textStreamReader.ReadLine();
+                } catch
+                {
+                    MessageBox.Show("error writing text!");
+                }
+                */
                 pageRTB.Text = Properties.Resources.nd_movies;
                 nd_a_movies = true;
             }
