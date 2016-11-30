@@ -218,17 +218,22 @@ namespace notedump
                 pageRTB.Name = "pageRTB_movies";
                 tabMainMovies.Controls.Add(pageRTB); //do i need this?
                 pageRTB.Dock = DockStyle.Fill;
-                /*
-                try
-                {
-                    pageRTB.Text = _textStreamReader.ReadLine();
-                } catch
-                {
-                    MessageBox.Show("error writing text!");
-                }
-                */
-                pageRTB.Text = Properties.Resources.nd_movies;
+                pageRTB.LoadFile("nd_movies.txt", RichTextBoxStreamType.PlainText);
+                //pageRTB.Text = Properties.Resources.nd_movies;
                 nd_a_movies = true;
+
+                //Uri uri1 = new Uri("/nd_movies.txt", UriKind.Relative); //doesn't work?
+                //StreamResourceInfo sri1;
+                //using (var r1 = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("notedump.nd_movies.txt")))
+                //{
+                //    string l1;
+                //    while((l1 = r1.ReadLine()) != null)
+                //    {
+                //        Console.WriteLine(l1);
+                //    }
+                //}
+
+                Console.WriteLine("thisthis");
             }
         }
 

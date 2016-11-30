@@ -62,3 +62,12 @@ notedump change log
 
 2016.11.29
 - in process of outputting rtb contents to associated resource file
+
+
+2016.11.30
+- using rtb.LoadFile(...) instead of "rtb.Text = Properties..."
+	- on first build, loads contents from original resource content file
+	- on subsequent runs+loads, saved content persists and is loaded into rtb
+	- "rtb.Text = Properties..." load the string inside the original resource file, rather than persistent file
+	- cleaning the solution will deploy the resource files again
+-

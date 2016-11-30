@@ -82,7 +82,7 @@ namespace notedump
                     outputFile.Write(rtb69.Text);
                 }
                 */
-                rtb69.SaveFile(notedump.Properties.Resources.nd_movies, RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile("nd_movies.txt", RichTextBoxStreamType.PlainText);
             }
             Console.WriteLine(Properties.Resources.nd_movies);//movies remains unchanged
             this.Close();
