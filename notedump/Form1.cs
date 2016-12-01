@@ -76,6 +76,7 @@ namespace notedump
 
         private void tabControlMusic_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            //use this event to tell textbox where it's output is going to be
             if (tabControlMusic.SelectedTab == tabMusicAll)
             {
                 //remember to make Console/output window visible to see messages
@@ -95,6 +96,9 @@ namespace notedump
             //used to create new RichTextBox for the subtab
             TabControl eventControl = (TabControl)sender;
             TabPage eventPage = eventControl.SelectedTab;
+
+            //creating a textbox immediately on doubleclick without check
+            //might not be safe, but only tabs get this event
             RichTextBox pageRTB = new RichTextBox();
             eventPage.Controls.Add(pageRTB);
             pageRTB.Dock = DockStyle.Fill;
@@ -103,19 +107,22 @@ namespace notedump
                 if (tabControlMusic.SelectedTab == tabMusicAll)
                 {
                     pageRTB.Name = "pageRTB_music_all";
-                    pageRTB.Text = Properties.Resources.nd_music_all;
+                    pageRTB.LoadFile("nd_music_all.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_music_all;
                     nd_a_music_all = true;
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
                     pageRTB.Name = "pageRTB_music_ind";
-                    pageRTB.Text = Properties.Resources.nd_music_indie;
+                    pageRTB.LoadFile("nd_music_indie.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_music_indie;
                     nd_a_music_ind = true;
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
                     pageRTB.Name = "pageRTB_music_met";
-                    pageRTB.Text = Properties.Resources.nd_music_metal;
+                    pageRTB.LoadFile("nd_music_metal.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_music_metal;
                     nd_a_music_met = true;
                 }
             } else if (eventControl == tabControlLinks)
@@ -123,19 +130,22 @@ namespace notedump
                 if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
                     pageRTB.Name = "pageRTB_links_all";
-                    pageRTB.Text = Properties.Resources.nd_links_all;
+                    pageRTB.LoadFile("nd_links_all.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_links_all;
                     nd_a_links_all = true;
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
-                    pageRTB.Name = "pageRTB_links_art";
-                    pageRTB.Text = Properties.Resources.nd_links_arts;
-                    nd_a_links_art = true;
+                    pageRTB.Name = "pageRTB_links_arts";
+                    pageRTB.LoadFile("nd_links_arts.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_links_arts;
+                    nd_a_links_arts = true;
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
                     pageRTB.Name = "pageRTB_links_yt";
-                    pageRTB.Text = Properties.Resources.nd_links_yt;
+                    pageRTB.LoadFile("nd_links_yt.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_links_yt;
                     nd_a_links_yt = true;
                 }
             } else if (eventControl == tabControlTD)
@@ -143,12 +153,14 @@ namespace notedump
                 if (tabControlTD.SelectedTab == tabTDRemind)
                 {
                     pageRTB.Name = "pageRTB_td_rem";
-                    pageRTB.Text = Properties.Resources.nd_td_remind;
+                    pageRTB.LoadFile("nd_td_remind.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_td_remind;
                     nd_a_td_rem = true;
                 } else if (tabControlTD.SelectedTab == tabTDTD)
                 {
                     pageRTB.Name = "pageRTB_td_td";
-                    pageRTB.Text = Properties.Resources.nd_td_td;
+                    pageRTB.LoadFile("nd_td_td.txt", RichTextBoxStreamType.PlainText);
+                    //pageRTB.Text = Properties.Resources.nd_td_td;
                     nd_a_td_td = true;
                 }
             }
@@ -202,38 +214,16 @@ namespace notedump
         private void tabControlMain_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if(tabControlMain.SelectedTab == tabMainMovies)
-            {
-                //Assembly _assembly;
-                //StreamReader _textStreamReader;
-                //try
-                //{
-                //    _assembly = Assembly.GetExecutingAssembly();
-                //    _textStreamReader = new StreamReader(_assembly.GetManifestResourceStream("notedump.nd_movies.txt"));
-                //}
-                //catch
-                //{
-                //    MessageBox.Show("error accessing resources!");
-                //}
+            {                
                 RichTextBox pageRTB = new RichTextBox();
                 pageRTB.Name = "pageRTB_movies";
                 tabMainMovies.Controls.Add(pageRTB); //do i need this?
                 pageRTB.Dock = DockStyle.Fill;
                 pageRTB.LoadFile("nd_movies.txt", RichTextBoxStreamType.PlainText);
-                //pageRTB.Text = Properties.Resources.nd_movies;
                 nd_a_movies = true;
 
-                //Uri uri1 = new Uri("/nd_movies.txt", UriKind.Relative); //doesn't work?
-                //StreamResourceInfo sri1;
-                //using (var r1 = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("notedump.nd_movies.txt")))
-                //{
-                //    string l1;
-                //    while((l1 = r1.ReadLine()) != null)
-                //    {
-                //        Console.WriteLine(l1);
-                //    }
-                //}
 
-                Console.WriteLine("thisthis");
+                //Console.WriteLine("thisthis");
             }
         }
 
