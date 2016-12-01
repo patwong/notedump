@@ -73,3 +73,10 @@ notedump change log
 
 2016.12.01
 - finished "Save All" and "Save All and Exit"
+- working on flush button
+	- using array (activearray) to indicate which tab is currently active
+	- SelectedIndexChanged is an array of 0s with a single 1, 1 indicating the active tab, 0 for all inactive tabs
+	    0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
+        5: links_all, 6: links_yt, 7: links_arts, 8: movies
+	- allow content flushed to tab whose contents aren't open?
+-

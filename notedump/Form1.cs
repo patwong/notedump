@@ -16,7 +16,7 @@ namespace notedump
     {
         //figure out dynamic tab system later
         //will hardcode important tabs first
-        
+
         /*
          * public partial class MenuTab : TabPage
         {
@@ -27,11 +27,32 @@ namespace notedump
             //i do something
         }
         */
+        //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
+        //5: links_all, 6: links_yt, 7: links_arts, 8: movies
+        private int[] activetabs;
+
         public NotedumpMainForm()
         {
             InitializeComponent();
+            activetabs = new int[9];
+            for(int i = 0; i < 9; i++)
+            {
+                activetabs[i] = 0;
+            }
         }
-
+        private void set_active_tab(int tab_num)
+        {
+            for(int i = 0; i < 9; i++)
+            {
+                if(i == tab_num)
+                {
+                    activetabs[i] = 1;
+                } else
+                {
+                    activetabs[i] = 0;
+                }
+            }
+        }
         //tab code       
         private void tabControls_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -51,6 +72,11 @@ namespace notedump
                 {
                     Console.WriteLine("tab main music selected!!");
                 }
+                else if (tabControlMain.SelectedTab == tabMainMusic)
+                {
+                    Console.WriteLine("debug: selected tab: movies");
+                    set_active_tab(8);
+                }
             }
             else if (tabControlEvent == tabControlMusic)
             {
@@ -59,6 +85,21 @@ namespace notedump
                     tabName = "MusicTab";
                     RealSelectedTab = true;
                 }
+                else if (tabControlMusic.SelectedTab == tabMusicAll)
+                {
+                    Console.WriteLine("selectedindex: music all");
+                    set_active_tab(2);
+                }
+                else if (tabControlMusic.SelectedTab == tabMusicIndie)
+                {
+                    Console.WriteLine("debug: selectedindex: music indie");
+                    set_active_tab(3);
+                }
+                else if (tabControlMusic.SelectedTab == tabMusicMetal)
+                {
+                    Console.WriteLine("debug: selected tab: music met");
+                    set_active_tab(4);
+                }
             }
             else if (tabControlEvent == tabControlLinks)
             {
@@ -66,17 +107,31 @@ namespace notedump
                 {
                     tabName = "LinksTab";
                     RealSelectedTab = true;
+                } else if (tabControlLinks.SelectedTab == tabLinksAll)
+                {
+                    Console.WriteLine("debug: selected tab: links all");
+                    set_active_tab(5);
+                } else if (tabControlLinks.SelectedTab == tabLinksYT)
+                {
+                    Console.WriteLine("debug: selected tab: links yt");
+                    set_active_tab(6);
+                } else if (tabControlLinks.SelectedTab == tabLinksArticles)
+                {
+                    Console.WriteLine("debug: selected tab: links arts");
+                    set_active_tab(7);
                 }
             }
             else if (tabControlEvent == tabControlTD)
             {
                 if(tabControlTD.SelectedTab == tabTDRemind)
                 {
-                    Console.WriteLine("td remind selected");
+                    Console.WriteLine("debug: selected tab: td remind");
+                    set_active_tab(0);
                 }
                 else if(tabControlTD.SelectedTab == tabTDTD)
                 {
-                    Console.WriteLine("td td selected");
+                    Console.WriteLine("debug: selected: td td");
+                    set_active_tab(1);
                 }
             }
             if (RealSelectedTab)
@@ -100,10 +155,6 @@ namespace notedump
             }
         }
 
-        private void tabMusicAll_DoubleClick(object sender, EventArgs e)
-        {
-            //doubleclicked the tab, now have it open a textbox and open a file
-        }
         
         private void tabSub_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -181,47 +232,40 @@ namespace notedump
             }
         }
 
+        //for activetabs:
+        //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
+        //5: links_all, 6: links_yt, 7: links_arts, 8: movies
         private void NDFlushButton_MouseClick(object sender, MouseEventArgs e)
         {
             //event handler for mouse click on Flush button
             Console.WriteLine("flush!"); //confirms that clicking button works
-            var auxList = System.Reflection.Assembly.GetExecutingAssembly().GetManifes‌​tResourceNames();
-            Console.WriteLine(auxList.Length);
-            foreach(string c in auxList)
+            if(activetabs[0] == 1)
             {
-                Console.WriteLine(c);
+                if(nd_a_td_rem)
+                {
+                    //find tabobject for tabTDTD
+                    //save rtb
+                    Control[] rtb = tabTDRemind.Controls.Find("pageRTB_td_rem", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    //do i allow unopened tab to have contents flushed?
+                }
             }
-            /*
-                notedump.NotedumpMainForm.resources
-                notedump.Properties.Resources.resources
-            */
             if (nd_a_movies) //checks if "Movies" RTB is active
             {
                 //find tabobject for tabLinksAll
-                //save rtb
-                
-                //int asdf = tabMainMovies.Controls.Count;
-                //Console.WriteLine(asdf); //1
+                //save rtb                          
                 Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
-                Console.WriteLine(rtb.Length); //1
+                //Console.WriteLine(rtb.Length); //1
                 
                 //this works
                 RichTextBox rtb69 = (RichTextBox)rtb[0];
                 Console.WriteLine(rtb69.Text + " hello!!!");
                 //rtb69.Text = rtb69.Text + "hello!!!";
                 rtb69.Text = rtb69.Text + '\n' + NDtextBox.Text;
-                //also works to get the rtb control
-                //each tab page only has one control attached - the rtb
-                /*
-                foreach (Control c in tabMainMovies.Controls)
-                {
-                    if (c is RichTextBox)
-                    {
-                        Console.WriteLine("c is rtb!");//this works!!!!!
-                        Console.WriteLine(c.Name);
-                    } 
-                }
-                */
 
             }
             NDtextBox.Clear();
