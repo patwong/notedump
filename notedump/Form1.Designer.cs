@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_open = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStrip_saveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_saveAllExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain = new System.Windows.Forms.TabControl();
@@ -54,7 +55,6 @@
             this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.NDtextBox = new System.Windows.Forms.TextBox();
             this.NDFlushButton = new System.Windows.Forms.Button();
-            this.MenuStrip_saveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainTD.SuspendLayout();
@@ -73,7 +73,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(196, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(58, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,6 +93,13 @@
             this.MenuStrip_open.Name = "MenuStrip_open";
             this.MenuStrip_open.Size = new System.Drawing.Size(226, 30);
             this.MenuStrip_open.Text = "Open";
+            // 
+            // MenuStrip_saveAll
+            // 
+            this.MenuStrip_saveAll.Name = "MenuStrip_saveAll";
+            this.MenuStrip_saveAll.Size = new System.Drawing.Size(226, 30);
+            this.MenuStrip_saveAll.Text = "Save All";
+            this.MenuStrip_saveAll.Click += new System.EventHandler(this.menuStrip_saveAll_Click);
             // 
             // MenuStrip_saveAllExit
             // 
@@ -147,6 +154,7 @@
             this.tabControlTD.SelectedIndex = 0;
             this.tabControlTD.Size = new System.Drawing.Size(945, 225);
             this.tabControlTD.TabIndex = 0;
+            this.tabControlTD.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlTD.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
             // 
             // tabTDRemind
@@ -341,13 +349,6 @@
             this.NDFlushButton.Text = "Flush";
             this.NDFlushButton.UseVisualStyleBackColor = true;
             this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick);
-            // 
-            // MenuStrip_saveAll
-            // 
-            this.MenuStrip_saveAll.Name = "MenuStrip_saveAll";
-            this.MenuStrip_saveAll.Size = new System.Drawing.Size(226, 30);
-            this.MenuStrip_saveAll.Text = "Save All";
-            this.MenuStrip_saveAll.Click += new System.EventHandler(this.menuStrip_saveAll_Click);
             // 
             // NotedumpMainForm
             // 

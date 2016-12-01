@@ -47,6 +47,10 @@ namespace notedump
                     tabName = "MainTab";
                     RealSelectedTab = true;
                 }
+                else if (tabControlMain.SelectedTab == tabMainMusic)
+                {
+                    Console.WriteLine("tab main music selected!!");
+                }
             }
             else if (tabControlEvent == tabControlMusic)
             {
@@ -62,6 +66,17 @@ namespace notedump
                 {
                     tabName = "LinksTab";
                     RealSelectedTab = true;
+                }
+            }
+            else if (tabControlEvent == tabControlTD)
+            {
+                if(tabControlTD.SelectedTab == tabTDRemind)
+                {
+                    Console.WriteLine("td remind selected");
+                }
+                else if(tabControlTD.SelectedTab == tabTDTD)
+                {
+                    Console.WriteLine("td td selected");
                 }
             }
             if (RealSelectedTab)
@@ -192,8 +207,9 @@ namespace notedump
                 
                 //this works
                 RichTextBox rtb69 = (RichTextBox)rtb[0];
-                //Console.WriteLine(rtb69.Text + " hello!!!");
-
+                Console.WriteLine(rtb69.Text + " hello!!!");
+                //rtb69.Text = rtb69.Text + "hello!!!";
+                rtb69.Text = rtb69.Text + '\n' + NDtextBox.Text;
                 //also works to get the rtb control
                 //each tab page only has one control attached - the rtb
                 /*
@@ -208,7 +224,7 @@ namespace notedump
                 */
 
             }
-
+            NDtextBox.Clear();
         }
 
         private void tabControlMain_MouseDoubleClick(object sender, MouseEventArgs e)
