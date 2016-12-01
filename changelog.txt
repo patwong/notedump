@@ -4,7 +4,6 @@ notedump change log
 - added exit dialogue to "Exit" in menu strip
 	this.Close()
 	also: http://stackoverflow.com/questions/7146080/closing-applications
-	
 - anchored main tab boxes to have size maintained when program maximized
 	source: http://www.techrepublic.com/article/manage-winform-controls-using-the-anchor-and-dock-properties/
 	http://stackoverflow.com/questions/4248637/how-to-auto-resize-and-adjust-form-controls-with-change-in-resolution
@@ -70,4 +69,7 @@ notedump change log
 	- on subsequent runs+loads, saved content persists and is loaded into rtb
 	- "rtb.Text = Properties..." load the string inside the original resource file, rather than persistent file
 	- cleaning the solution will deploy the resource files again
--
+
+
+2016.12.01
+- finished "Save All" and "Save All and Exit"
