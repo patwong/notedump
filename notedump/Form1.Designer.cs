@@ -55,6 +55,8 @@
             this.tabMainPlus = new System.Windows.Forms.TabPage();
             this.NDtextBox = new System.Windows.Forms.TextBox();
             this.NDFlushButton = new System.Windows.Forms.Button();
+            this.NDstatusStrip = new System.Windows.Forms.StatusStrip();
+            this.NDstatusStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainTD.SuspendLayout();
@@ -63,17 +65,17 @@
             this.tabControlMusic.SuspendLayout();
             this.tabMainLinks.SuspendLayout();
             this.tabControlLinks.SuspendLayout();
+            this.NDstatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(9, 9);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(58, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(988, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,18 +119,15 @@
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabMainTD);
             this.tabControlMain.Controls.Add(this.tabMainMusic);
             this.tabControlMain.Controls.Add(this.tabMainLinks);
             this.tabControlMain.Controls.Add(this.tabMainMovies);
             this.tabControlMain.Controls.Add(this.tabMainPlus);
-            this.tabControlMain.Location = new System.Drawing.Point(16, 55);
+            this.tabControlMain.Location = new System.Drawing.Point(12, 43);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(959, 264);
+            this.tabControlMain.Size = new System.Drawing.Size(963, 283);
             this.tabControlMain.TabIndex = 1;
             this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControlMain_MouseDoubleClick);
@@ -139,7 +138,7 @@
             this.tabMainTD.Location = new System.Drawing.Point(4, 29);
             this.tabMainTD.Name = "tabMainTD";
             this.tabMainTD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainTD.Size = new System.Drawing.Size(951, 231);
+            this.tabMainTD.Size = new System.Drawing.Size(955, 250);
             this.tabMainTD.TabIndex = 4;
             this.tabMainTD.Text = "To Do";
             this.tabMainTD.UseVisualStyleBackColor = true;
@@ -152,7 +151,7 @@
             this.tabControlTD.Location = new System.Drawing.Point(3, 3);
             this.tabControlTD.Name = "tabControlTD";
             this.tabControlTD.SelectedIndex = 0;
-            this.tabControlTD.Size = new System.Drawing.Size(945, 225);
+            this.tabControlTD.Size = new System.Drawing.Size(949, 244);
             this.tabControlTD.TabIndex = 0;
             this.tabControlTD.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlTD.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
@@ -162,7 +161,7 @@
             this.tabTDRemind.Location = new System.Drawing.Point(4, 29);
             this.tabTDRemind.Name = "tabTDRemind";
             this.tabTDRemind.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTDRemind.Size = new System.Drawing.Size(937, 192);
+            this.tabTDRemind.Size = new System.Drawing.Size(941, 211);
             this.tabTDRemind.TabIndex = 0;
             this.tabTDRemind.Text = "Reminders";
             this.tabTDRemind.UseVisualStyleBackColor = true;
@@ -172,7 +171,7 @@
             this.tabTDTD.Location = new System.Drawing.Point(4, 29);
             this.tabTDTD.Name = "tabTDTD";
             this.tabTDTD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTDTD.Size = new System.Drawing.Size(937, 192);
+            this.tabTDTD.Size = new System.Drawing.Size(937, 211);
             this.tabTDTD.TabIndex = 1;
             this.tabTDTD.Text = "To Do";
             this.tabTDTD.UseVisualStyleBackColor = true;
@@ -183,7 +182,7 @@
             this.tabMainMusic.Location = new System.Drawing.Point(4, 29);
             this.tabMainMusic.Name = "tabMainMusic";
             this.tabMainMusic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainMusic.Size = new System.Drawing.Size(951, 231);
+            this.tabMainMusic.Size = new System.Drawing.Size(951, 250);
             this.tabMainMusic.TabIndex = 0;
             this.tabMainMusic.Text = "Music";
             this.tabMainMusic.UseVisualStyleBackColor = true;
@@ -198,7 +197,7 @@
             this.tabControlMusic.Location = new System.Drawing.Point(3, 3);
             this.tabControlMusic.Name = "tabControlMusic";
             this.tabControlMusic.SelectedIndex = 0;
-            this.tabControlMusic.Size = new System.Drawing.Size(945, 225);
+            this.tabControlMusic.Size = new System.Drawing.Size(945, 244);
             this.tabControlMusic.TabIndex = 0;
             this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlMusic.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlMusic_Selecting);
@@ -209,7 +208,7 @@
             this.tabMusicAll.Location = new System.Drawing.Point(4, 29);
             this.tabMusicAll.Name = "tabMusicAll";
             this.tabMusicAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicAll.Size = new System.Drawing.Size(937, 192);
+            this.tabMusicAll.Size = new System.Drawing.Size(937, 211);
             this.tabMusicAll.TabIndex = 0;
             this.tabMusicAll.Text = "All";
             this.tabMusicAll.UseVisualStyleBackColor = true;
@@ -250,7 +249,7 @@
             this.tabMainLinks.Location = new System.Drawing.Point(4, 29);
             this.tabMainLinks.Name = "tabMainLinks";
             this.tabMainLinks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainLinks.Size = new System.Drawing.Size(951, 231);
+            this.tabMainLinks.Size = new System.Drawing.Size(951, 250);
             this.tabMainLinks.TabIndex = 1;
             this.tabMainLinks.Text = "Links";
             this.tabMainLinks.UseVisualStyleBackColor = true;
@@ -265,7 +264,7 @@
             this.tabControlLinks.Location = new System.Drawing.Point(3, 3);
             this.tabControlLinks.Name = "tabControlLinks";
             this.tabControlLinks.SelectedIndex = 0;
-            this.tabControlLinks.Size = new System.Drawing.Size(945, 225);
+            this.tabControlLinks.Size = new System.Drawing.Size(945, 244);
             this.tabControlLinks.TabIndex = 0;
             this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
@@ -275,7 +274,7 @@
             this.tabLinksAll.Location = new System.Drawing.Point(4, 29);
             this.tabLinksAll.Name = "tabLinksAll";
             this.tabLinksAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksAll.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksAll.Size = new System.Drawing.Size(937, 211);
             this.tabLinksAll.TabIndex = 0;
             this.tabLinksAll.Text = "All";
             this.tabLinksAll.UseVisualStyleBackColor = true;
@@ -315,7 +314,7 @@
             this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
             this.tabMainMovies.Name = "tabMainMovies";
             this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainMovies.Size = new System.Drawing.Size(951, 231);
+            this.tabMainMovies.Size = new System.Drawing.Size(951, 250);
             this.tabMainMovies.TabIndex = 3;
             this.tabMainMovies.Text = "Movies";
             this.tabMainMovies.UseVisualStyleBackColor = true;
@@ -325,7 +324,7 @@
             this.tabMainPlus.Location = new System.Drawing.Point(4, 29);
             this.tabMainPlus.Name = "tabMainPlus";
             this.tabMainPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainPlus.Size = new System.Drawing.Size(951, 231);
+            this.tabMainPlus.Size = new System.Drawing.Size(951, 250);
             this.tabMainPlus.TabIndex = 2;
             this.tabMainPlus.Text = "+";
             this.tabMainPlus.UseVisualStyleBackColor = true;
@@ -333,7 +332,7 @@
             // NDtextBox
             // 
             this.NDtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NDtextBox.Location = new System.Drawing.Point(16, 337);
+            this.NDtextBox.Location = new System.Drawing.Point(16, 341);
             this.NDtextBox.Multiline = true;
             this.NDtextBox.Name = "NDtextBox";
             this.NDtextBox.Size = new System.Drawing.Size(803, 98);
@@ -342,7 +341,7 @@
             // NDFlushButton
             // 
             this.NDFlushButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NDFlushButton.Location = new System.Drawing.Point(854, 355);
+            this.NDFlushButton.Location = new System.Drawing.Point(859, 349);
             this.NDFlushButton.Name = "NDFlushButton";
             this.NDFlushButton.Size = new System.Drawing.Size(117, 80);
             this.NDFlushButton.TabIndex = 3;
@@ -350,11 +349,29 @@
             this.NDFlushButton.UseVisualStyleBackColor = true;
             this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick);
             // 
+            // NDstatusStrip
+            // 
+            this.NDstatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.NDstatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NDstatusStripLabel});
+            this.NDstatusStrip.Location = new System.Drawing.Point(0, 448);
+            this.NDstatusStrip.Name = "NDstatusStrip";
+            this.NDstatusStrip.Size = new System.Drawing.Size(988, 30);
+            this.NDstatusStrip.TabIndex = 4;
+            this.NDstatusStrip.Text = "NDstatusStrip";
+            // 
+            // NDstatusStripLabel
+            // 
+            this.NDstatusStripLabel.Name = "NDstatusStripLabel";
+            this.NDstatusStripLabel.Size = new System.Drawing.Size(126, 25);
+            this.NDstatusStripLabel.Text = "None Selected";
+            // 
             // NotedumpMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 447);
+            this.ClientSize = new System.Drawing.Size(988, 478);
+            this.Controls.Add(this.NDstatusStrip);
             this.Controls.Add(this.NDFlushButton);
             this.Controls.Add(this.NDtextBox);
             this.Controls.Add(this.tabControlMain);
@@ -373,6 +390,8 @@
             this.tabControlMusic.ResumeLayout(false);
             this.tabMainLinks.ResumeLayout(false);
             this.tabControlLinks.ResumeLayout(false);
+            this.NDstatusStrip.ResumeLayout(false);
+            this.NDstatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,6 +426,8 @@
         private System.Windows.Forms.TabPage tabTDRemind;
         private System.Windows.Forms.TabPage tabTDTD;
         private System.Windows.Forms.ToolStripMenuItem MenuStrip_saveAll;
+        private System.Windows.Forms.StatusStrip NDstatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel NDstatusStripLabel;
     }
 }
 

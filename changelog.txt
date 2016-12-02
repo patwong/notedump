@@ -83,4 +83,13 @@ notedump change log
 
 2016.12.02
 - allowed content flushed to tab whose contents aren't open
+	- appended text to end of file associated to selected tab
+	append:
+	https://msdn.microsoft.com/en-us/library/system.io.file.appendtext%28v=vs.110%29.aspx
+	appendall
+	https://msdn.microsoft.com/en-us/library/ms143356%28v=vs.110%29.aspx
+	- newline in windows is '\r\n'
 - implementing a status bar to give indication which tabpage is open (problem if tab page isn't active)
+	how to make status bar show text:
+	http://stackoverflow.com/questions/13336290/how-to-update-statusstrip-in-windows-forms
+	also, have status bar docked at bottom otherwise text doesn't appear

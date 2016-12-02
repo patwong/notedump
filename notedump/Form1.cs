@@ -68,14 +68,26 @@ namespace notedump
                     tabName = "MainTab";
                     RealSelectedTab = true;
                 }
+                else if (tabControlMain.SelectedTab == tabMainLinks)
+                {
+                    NDstatusStripLabel.Text = "selected tab: links";
+                }
                 else if (tabControlMain.SelectedTab == tabMainMusic)
                 {
                     Console.WriteLine("tab main music selected!!");
+                    NDstatusStripLabel.Text = "selected tab: music";
+                    //NDstatusStrip.Refresh();
                 }
                 else if (tabControlMain.SelectedTab == tabMainMovies)
                 {
                     Console.WriteLine("debug: selected tab: movies");
+                    NDstatusStripLabel.Text = "selected tab: movies";
+                    //NDstatusStrip.Refresh();
                     set_active_tab(8);
+                }
+                else if (tabControlMain.SelectedTab == tabMainTD)
+                {
+                    NDstatusStripLabel.Text = "selected tab: TD";
                 }
             }
             else if (tabControlEvent == tabControlMusic)
@@ -88,16 +100,20 @@ namespace notedump
                 else if (tabControlMusic.SelectedTab == tabMusicAll)
                 {
                     Console.WriteLine("selectedindex: music all");
+                    NDstatusStripLabel.Text = "selected tab: music, all";
+                    //NDstatusStrip.Refresh();
                     set_active_tab(2);
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
                     Console.WriteLine("debug: selectedindex: music indie");
+                    NDstatusStripLabel.Text = "selected tab: music, indie";                    
                     set_active_tab(3);
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
                     Console.WriteLine("debug: selected tab: music met");
+                    NDstatusStripLabel.Text = "selected tab: music, metal";
                     set_active_tab(4);
                 }
             }
@@ -110,14 +126,17 @@ namespace notedump
                 } else if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
                     Console.WriteLine("debug: selected tab: links all");
+                    NDstatusStripLabel.Text = "selected tab: links, all";
                     set_active_tab(5);
                 } else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
                     Console.WriteLine("debug: selected tab: links yt");
+                    NDstatusStripLabel.Text = "selected tab: links, yt";
                     set_active_tab(6);
                 } else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
                     Console.WriteLine("debug: selected tab: links arts");
+                    NDstatusStripLabel.Text = "selected tab: links, articles";
                     set_active_tab(7);
                 }
             }
@@ -126,11 +145,13 @@ namespace notedump
                 if(tabControlTD.SelectedTab == tabTDRemind)
                 {
                     Console.WriteLine("debug: selected tab: td remind");
+                    NDstatusStripLabel.Text = "selected tab: td, reminders";
                     set_active_tab(0);
                 }
                 else if(tabControlTD.SelectedTab == tabTDTD)
                 {
                     Console.WriteLine("debug: selected: td td");
+                    NDstatusStripLabel.Text = "selected tab: td, td";
                     set_active_tab(1);
                 }
             }
@@ -141,6 +162,7 @@ namespace notedump
                 tabControlEvent.TabPages.Insert(tabControlEvent.TabPages.Count - 1, createdTabPage);
                 tabControlEvent.SelectedTab = createdTabPage;
             }
+            NDstatusStrip.Refresh();
         }
 
 
@@ -296,7 +318,7 @@ namespace notedump
                 {
                     //find tabobject for tabMusicAll
                     //save rtb
-                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_music_all", true);
+                    Control[] rtb = tabMusicAll.Controls.Find("pageRTB_music_all", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
                     rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
                 }
@@ -320,7 +342,7 @@ namespace notedump
                 {
                     //find tabobject for tabMusicIndie
                     //save rtb
-                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_music_ind", true);
+                    Control[] rtb = tabMusicIndie.Controls.Find("pageRTB_music_ind", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
                     rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
                 }
@@ -344,7 +366,7 @@ namespace notedump
                 {
                     //find tabobject for tabMusicMetal
                     //save rtb
-                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_music_met", true);
+                    Control[] rtb = tabMusicMetal.Controls.Find("pageRTB_music_met", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
                     rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
                 }
@@ -368,7 +390,7 @@ namespace notedump
                 {
                     //find tabobject for tabLinksAll
                     //save rtb
-                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_links_all", true);
+                    Control[] rtb = tabLinksAll.Controls.Find("pageRTB_links_all", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
                     rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
                 }
@@ -386,20 +408,76 @@ namespace notedump
                     }
                 }
             }
+            else if (activetabs[6] == 1)
+            {
+                if (nd_a_links_yt)
+                {
+                    //find tabobject for tabLinksYT
+                    //save rtb
+                    Control[] rtb = tabLinksYT.Controls.Find("pageRTB_links_yt", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_links_yt.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
+            else if (activetabs[7] == 1)
+            {
+                if (nd_a_links_arts)
+                {
+                    //find tabobject for tabLinkArticles
+                    //save rtb
+                    Control[] rtb = tabLinksArticles.Controls.Find("pageRTB_links_arts", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_links_arts.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
             else if (activetabs[8] == 1)
             {
                 if (nd_a_movies) //checks if "Movies" RTB is active
                 {
-                    //find tabobject for tabLinksAll
+                    //find tabobject for tabMainMovies
                     //save rtb                          
                     Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
-                    //Console.WriteLine(rtb.Length); //1
-
-                    //this works
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
-                    Console.WriteLine(rtb69.Text + " hello!!!");
-                    //rtb69.Text = rtb69.Text + "hello!!!";
-                    rtb69.Text = rtb69.Text + '\r\n' + NDtextBox.Text;
+                    rtb69.Text = rtb69.Text + '\r'+ '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_movies.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
                 }
             }
             NDtextBox.Clear();
