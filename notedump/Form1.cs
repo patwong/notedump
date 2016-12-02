@@ -74,15 +74,11 @@ namespace notedump
                 }
                 else if (tabControlMain.SelectedTab == tabMainMusic)
                 {
-                    Console.WriteLine("tab main music selected!!");
                     NDstatusStripLabel.Text = "selected tab: music";
-                    //NDstatusStrip.Refresh();
                 }
                 else if (tabControlMain.SelectedTab == tabMainMovies)
                 {
-                    Console.WriteLine("debug: selected tab: movies");
                     NDstatusStripLabel.Text = "selected tab: movies";
-                    //NDstatusStrip.Refresh();
                     set_active_tab(8);
                 }
                 else if (tabControlMain.SelectedTab == tabMainTD)
@@ -99,20 +95,16 @@ namespace notedump
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicAll)
                 {
-                    Console.WriteLine("selectedindex: music all");
                     NDstatusStripLabel.Text = "selected tab: music, all";
-                    //NDstatusStrip.Refresh();
                     set_active_tab(2);
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
-                    Console.WriteLine("debug: selectedindex: music indie");
                     NDstatusStripLabel.Text = "selected tab: music, indie";                    
                     set_active_tab(3);
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
-                    Console.WriteLine("debug: selected tab: music met");
                     NDstatusStripLabel.Text = "selected tab: music, metal";
                     set_active_tab(4);
                 }
@@ -125,17 +117,14 @@ namespace notedump
                     RealSelectedTab = true;
                 } else if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
-                    Console.WriteLine("debug: selected tab: links all");
                     NDstatusStripLabel.Text = "selected tab: links, all";
                     set_active_tab(5);
                 } else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
-                    Console.WriteLine("debug: selected tab: links yt");
                     NDstatusStripLabel.Text = "selected tab: links, yt";
                     set_active_tab(6);
                 } else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
-                    Console.WriteLine("debug: selected tab: links arts");
                     NDstatusStripLabel.Text = "selected tab: links, articles";
                     set_active_tab(7);
                 }
@@ -144,13 +133,11 @@ namespace notedump
             {
                 if(tabControlTD.SelectedTab == tabTDRemind)
                 {
-                    Console.WriteLine("debug: selected tab: td remind");
                     NDstatusStripLabel.Text = "selected tab: td, reminders";
                     set_active_tab(0);
                 }
                 else if(tabControlTD.SelectedTab == tabTDTD)
                 {
-                    Console.WriteLine("debug: selected: td td");
                     NDstatusStripLabel.Text = "selected tab: td, td";
                     set_active_tab(1);
                 }
@@ -163,18 +150,6 @@ namespace notedump
                 tabControlEvent.SelectedTab = createdTabPage;
             }
             NDstatusStrip.Refresh();
-        }
-
-
-        private void tabControlMusic_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            //use this event to tell textbox where it's output is going to be
-            if (tabControlMusic.SelectedTab == tabMusicAll)
-            {
-                //remember to make Console/output window visible to see messages
-                Console.WriteLine("you selected music_all");
-                //MessageBox.Show("you selected Music_All"); //annoying
-            }
         }
 
         
@@ -196,22 +171,22 @@ namespace notedump
                 {
                     pageRTB.Name = "pageRTB_music_all";
                     pageRTB.LoadFile("nd_music_all.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_music_all;
                     nd_a_music_all = true;
+                    NDstatusStripLabel.Text = "music all activated!";
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
                     pageRTB.Name = "pageRTB_music_ind";
                     pageRTB.LoadFile("nd_music_indie.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_music_indie;
                     nd_a_music_ind = true;
+                    NDstatusStripLabel.Text = "music indie activated!";
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
                     pageRTB.Name = "pageRTB_music_met";
                     pageRTB.LoadFile("nd_music_metal.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_music_metal;
                     nd_a_music_met = true;
+                    NDstatusStripLabel.Text = "music metal activated!";
                 }
             } else if (eventControl == tabControlLinks)
             {
@@ -219,15 +194,15 @@ namespace notedump
                 {
                     pageRTB.Name = "pageRTB_links_all";
                     pageRTB.LoadFile("nd_links_all.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_links_all;
                     nd_a_links_all = true;
+                    NDstatusStripLabel.Text = "links all activated!";
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
                     pageRTB.Name = "pageRTB_links_arts";
                     pageRTB.LoadFile("nd_links_arts.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_links_arts;
                     nd_a_links_arts = true;
+                    NDstatusStripLabel.Text = "links articles activated!";
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
@@ -493,7 +468,6 @@ namespace notedump
                 pageRTB.Dock = DockStyle.Fill;
                 pageRTB.LoadFile("nd_movies.txt", RichTextBoxStreamType.PlainText);
                 nd_a_movies = true;
-
 
                 //Console.WriteLine("thisthis");
             }

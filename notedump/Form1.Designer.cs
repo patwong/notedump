@@ -171,7 +171,7 @@
             this.tabTDTD.Location = new System.Drawing.Point(4, 29);
             this.tabTDTD.Name = "tabTDTD";
             this.tabTDTD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTDTD.Size = new System.Drawing.Size(937, 211);
+            this.tabTDTD.Size = new System.Drawing.Size(941, 211);
             this.tabTDTD.TabIndex = 1;
             this.tabTDTD.Text = "To Do";
             this.tabTDTD.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.tabMainMusic.Location = new System.Drawing.Point(4, 29);
             this.tabMainMusic.Name = "tabMainMusic";
             this.tabMainMusic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainMusic.Size = new System.Drawing.Size(951, 250);
+            this.tabMainMusic.Size = new System.Drawing.Size(955, 250);
             this.tabMainMusic.TabIndex = 0;
             this.tabMainMusic.Text = "Music";
             this.tabMainMusic.UseVisualStyleBackColor = true;
@@ -197,10 +197,9 @@
             this.tabControlMusic.Location = new System.Drawing.Point(3, 3);
             this.tabControlMusic.Name = "tabControlMusic";
             this.tabControlMusic.SelectedIndex = 0;
-            this.tabControlMusic.Size = new System.Drawing.Size(945, 244);
+            this.tabControlMusic.Size = new System.Drawing.Size(949, 244);
             this.tabControlMusic.TabIndex = 0;
             this.tabControlMusic.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
-            this.tabControlMusic.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlMusic_Selecting);
             this.tabControlMusic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
             // 
             // tabMusicAll
@@ -208,7 +207,7 @@
             this.tabMusicAll.Location = new System.Drawing.Point(4, 29);
             this.tabMusicAll.Name = "tabMusicAll";
             this.tabMusicAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicAll.Size = new System.Drawing.Size(937, 211);
+            this.tabMusicAll.Size = new System.Drawing.Size(941, 211);
             this.tabMusicAll.TabIndex = 0;
             this.tabMusicAll.Text = "All";
             this.tabMusicAll.UseVisualStyleBackColor = true;
@@ -218,7 +217,7 @@
             this.tabMusicIndie.Location = new System.Drawing.Point(4, 29);
             this.tabMusicIndie.Name = "tabMusicIndie";
             this.tabMusicIndie.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicIndie.Size = new System.Drawing.Size(937, 192);
+            this.tabMusicIndie.Size = new System.Drawing.Size(937, 211);
             this.tabMusicIndie.TabIndex = 2;
             this.tabMusicIndie.Text = "Indie";
             this.tabMusicIndie.UseVisualStyleBackColor = true;
@@ -228,7 +227,7 @@
             this.tabMusicMetal.Location = new System.Drawing.Point(4, 29);
             this.tabMusicMetal.Name = "tabMusicMetal";
             this.tabMusicMetal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicMetal.Size = new System.Drawing.Size(937, 192);
+            this.tabMusicMetal.Size = new System.Drawing.Size(937, 211);
             this.tabMusicMetal.TabIndex = 3;
             this.tabMusicMetal.Text = "Metal";
             this.tabMusicMetal.UseVisualStyleBackColor = true;
@@ -238,7 +237,7 @@
             this.tabMusicPlus.Location = new System.Drawing.Point(4, 29);
             this.tabMusicPlus.Name = "tabMusicPlus";
             this.tabMusicPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicPlus.Size = new System.Drawing.Size(937, 192);
+            this.tabMusicPlus.Size = new System.Drawing.Size(937, 211);
             this.tabMusicPlus.TabIndex = 1;
             this.tabMusicPlus.Text = "+";
             this.tabMusicPlus.UseVisualStyleBackColor = true;
@@ -249,7 +248,7 @@
             this.tabMainLinks.Location = new System.Drawing.Point(4, 29);
             this.tabMainLinks.Name = "tabMainLinks";
             this.tabMainLinks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainLinks.Size = new System.Drawing.Size(951, 250);
+            this.tabMainLinks.Size = new System.Drawing.Size(955, 250);
             this.tabMainLinks.TabIndex = 1;
             this.tabMainLinks.Text = "Links";
             this.tabMainLinks.UseVisualStyleBackColor = true;
@@ -264,7 +263,7 @@
             this.tabControlLinks.Location = new System.Drawing.Point(3, 3);
             this.tabControlLinks.Name = "tabControlLinks";
             this.tabControlLinks.SelectedIndex = 0;
-            this.tabControlLinks.Size = new System.Drawing.Size(945, 244);
+            this.tabControlLinks.Size = new System.Drawing.Size(949, 244);
             this.tabControlLinks.TabIndex = 0;
             this.tabControlLinks.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
             this.tabControlLinks.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
@@ -274,7 +273,7 @@
             this.tabLinksAll.Location = new System.Drawing.Point(4, 29);
             this.tabLinksAll.Name = "tabLinksAll";
             this.tabLinksAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksAll.Size = new System.Drawing.Size(937, 211);
+            this.tabLinksAll.Size = new System.Drawing.Size(941, 211);
             this.tabLinksAll.TabIndex = 0;
             this.tabLinksAll.Text = "All";
             this.tabLinksAll.UseVisualStyleBackColor = true;
@@ -284,7 +283,7 @@
             this.tabLinksYT.Location = new System.Drawing.Point(4, 29);
             this.tabLinksYT.Name = "tabLinksYT";
             this.tabLinksYT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksYT.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksYT.Size = new System.Drawing.Size(937, 211);
             this.tabLinksYT.TabIndex = 2;
             this.tabLinksYT.Text = "YouTube";
             this.tabLinksYT.UseVisualStyleBackColor = true;
@@ -294,7 +293,7 @@
             this.tabLinksArticles.Location = new System.Drawing.Point(4, 29);
             this.tabLinksArticles.Name = "tabLinksArticles";
             this.tabLinksArticles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksArticles.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksArticles.Size = new System.Drawing.Size(937, 211);
             this.tabLinksArticles.TabIndex = 3;
             this.tabLinksArticles.Text = "Articles";
             this.tabLinksArticles.UseVisualStyleBackColor = true;
@@ -304,7 +303,7 @@
             this.tabLinksPlus.Location = new System.Drawing.Point(4, 29);
             this.tabLinksPlus.Name = "tabLinksPlus";
             this.tabLinksPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksPlus.Size = new System.Drawing.Size(937, 192);
+            this.tabLinksPlus.Size = new System.Drawing.Size(937, 211);
             this.tabLinksPlus.TabIndex = 1;
             this.tabLinksPlus.Text = "+";
             this.tabLinksPlus.UseVisualStyleBackColor = true;
@@ -314,7 +313,7 @@
             this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
             this.tabMainMovies.Name = "tabMainMovies";
             this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainMovies.Size = new System.Drawing.Size(951, 250);
+            this.tabMainMovies.Size = new System.Drawing.Size(955, 250);
             this.tabMainMovies.TabIndex = 3;
             this.tabMainMovies.Text = "Movies";
             this.tabMainMovies.UseVisualStyleBackColor = true;
@@ -324,7 +323,7 @@
             this.tabMainPlus.Location = new System.Drawing.Point(4, 29);
             this.tabMainPlus.Name = "tabMainPlus";
             this.tabMainPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainPlus.Size = new System.Drawing.Size(951, 250);
+            this.tabMainPlus.Size = new System.Drawing.Size(955, 250);
             this.tabMainPlus.TabIndex = 2;
             this.tabMainPlus.Text = "+";
             this.tabMainPlus.UseVisualStyleBackColor = true;
