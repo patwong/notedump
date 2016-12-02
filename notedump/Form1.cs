@@ -72,7 +72,7 @@ namespace notedump
                 {
                     Console.WriteLine("tab main music selected!!");
                 }
-                else if (tabControlMain.SelectedTab == tabMainMusic)
+                else if (tabControlMain.SelectedTab == tabMainMovies)
                 {
                     Console.WriteLine("debug: selected tab: movies");
                     set_active_tab(8);
@@ -243,30 +243,164 @@ namespace notedump
             {
                 if(nd_a_td_rem)
                 {
-                    //find tabobject for tabTDTD
+                    //find tabobject for tabTDRemind
                     //save rtb
                     Control[] rtb = tabTDRemind.Controls.Find("pageRTB_td_rem", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
-                    rtb69.Text = rtb69.Text + '\n' + NDtextBox.Text;
+                    rtb69.Text = rtb69.Text + 'r' + '\n' + NDtextBox.Text;
                 }
                 else
                 {
                     //do i allow unopened tab to have contents flushed?
+                    //let's try first...
+                    //it works!!
+                    string filepath = "nd_td_remind.txt";
+                    if(!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
                 }
             }
-            if (nd_a_movies) //checks if "Movies" RTB is active
+            else if(activetabs[1] == 1)
             {
-                //find tabobject for tabLinksAll
-                //save rtb                          
-                Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
-                //Console.WriteLine(rtb.Length); //1
-                
-                //this works
-                RichTextBox rtb69 = (RichTextBox)rtb[0];
-                Console.WriteLine(rtb69.Text + " hello!!!");
-                //rtb69.Text = rtb69.Text + "hello!!!";
-                rtb69.Text = rtb69.Text + '\n' + NDtextBox.Text;
+                if (nd_a_td_td)
+                {
+                    //find tabobject for tabTDTD
+                    //save rtb
+                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_td_td", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_td_td.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
+            else if (activetabs[2] == 1)
+            {
+                if (nd_a_music_all)
+                {
+                    //find tabobject for tabMusicAll
+                    //save rtb
+                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_music_all", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_music_all.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
+            else if (activetabs[3] == 1)
+            {
+                if (nd_a_music_ind)
+                {
+                    //find tabobject for tabMusicIndie
+                    //save rtb
+                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_music_ind", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_music_ind.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
+            else if (activetabs[4] == 1)
+            {
+                if (nd_a_music_met)
+                {
+                    //find tabobject for tabMusicMetal
+                    //save rtb
+                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_music_met", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_music_metal.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
+            else if (activetabs[5] == 1)
+            {
+                if (nd_a_links_all)
+                {
+                    //find tabobject for tabLinksAll
+                    //save rtb
+                    Control[] rtb = tabTDTD.Controls.Find("pageRTB_links_all", true);
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                }
+                else
+                {
+                    string filepath = "nd_links_all.txt";
+                    if (!(File.Exists(filepath)))
+                    {
+                        MessageBox.Show("file doesn't exist!");
+                    }
+                    else
+                    {
+                        File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                        Console.WriteLine("file written out!!");
+                    }
+                }
+            }
+            else if (activetabs[8] == 1)
+            {
+                if (nd_a_movies) //checks if "Movies" RTB is active
+                {
+                    //find tabobject for tabLinksAll
+                    //save rtb                          
+                    Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
+                    //Console.WriteLine(rtb.Length); //1
 
+                    //this works
+                    RichTextBox rtb69 = (RichTextBox)rtb[0];
+                    Console.WriteLine(rtb69.Text + " hello!!!");
+                    //rtb69.Text = rtb69.Text + "hello!!!";
+                    rtb69.Text = rtb69.Text + '\r\n' + NDtextBox.Text;
+                }
             }
             NDtextBox.Clear();
         }

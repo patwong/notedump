@@ -79,4 +79,8 @@ notedump change log
 	    0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
         5: links_all, 6: links_yt, 7: links_arts, 8: movies
 	- allow content flushed to tab whose contents aren't open?
--
+
+
+2016.12.02
+- allowed content flushed to tab whose contents aren't open
+- implementing a status bar to give indication which tabpage is open (problem if tab page isn't active)
