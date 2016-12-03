@@ -94,3 +94,4 @@ notedump change log
 	http://stackoverflow.com/questions/13336290/how-to-update-statusstrip-in-windows-forms
 	also, have status bar docked at bottom otherwise text doesn't appear
 - removing debugging statements and shifting it to status bar
+- refactoring NDFlush to a shorter version using reflection

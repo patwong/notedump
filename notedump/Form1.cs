@@ -30,14 +30,64 @@ namespace notedump
         //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
         //5: links_all, 6: links_yt, 7: links_arts, 8: movies
         private int[] activetabs;
+        private string[] activetab_rtb_name;
+        private string[] subtabfile;
+        private bool[] nd_active;
 
         public NotedumpMainForm()
         {
             InitializeComponent();
             activetabs = new int[9];
-            for(int i = 0; i < 9; i++)
+            activetab_rtb_name = new string[9];            
+            subtabfile = new string[9];
+            nd_active = new bool[9];
+
+            //don't want to initialize a jagged array; two separate arrays easier :)
+
+            for (int i = 0; i < 9; i++)
             {
                 activetabs[i] = 0;
+                nd_active[i] = false;
+                switch(i)
+                {
+                    case 0:
+                        activetab_rtb_name[i] = "pageRTB_td_rem";
+                        subtabfile[i] = "nd_td_remind.txt";
+                        break;
+                    case 1:
+                        activetab_rtb_name[i] = "pageRTB_td_td";
+                        subtabfile[i] = "nd_td_td.txt";
+                        break;
+                    case 2:
+                        activetab_rtb_name[i] = "pageRTB_music_all";
+                        subtabfile[i] = "nd_music_all.txt";
+                        break;
+                    case 3:
+                        activetab_rtb_name[i] = "pageRTB_music_ind";
+                        subtabfile[i] = "nd_music_ind.txt";
+                        break;
+                    case 4:
+                        activetab_rtb_name[i] = "pageRTB_music_met";
+                        subtabfile[i] = "nd_music_metal.txt";
+                        break;
+                    case 5:
+                        activetab_rtb_name[i] = "pageRTB_links_all";
+                        subtabfile[i] = "nd_links_all.txt";
+                        break;
+                    case 6:
+                        activetab_rtb_name[i] = "pageRTB_links_yt";
+                        subtabfile[i] = "nd_links_yt.txt";
+                        break;
+                    case 7:
+                        activetab_rtb_name[i] = "pageRTB_links_arts";
+                        subtabfile[i] = "nd_links_arts.txt";
+                        break;
+                    case 8:
+                        activetab_rtb_name[i] = "pageRTB_movies";
+                        subtabfile[i] = "nd_movies.txt";
+                        break;
+                }
+                
             }
         }
         private void set_active_tab(int tab_num)
@@ -172,6 +222,7 @@ namespace notedump
                     pageRTB.Name = "pageRTB_music_all";
                     pageRTB.LoadFile("nd_music_all.txt", RichTextBoxStreamType.PlainText);
                     nd_a_music_all = true;
+                    nd_active[2] = true;
                     NDstatusStripLabel.Text = "music all activated!";
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
@@ -179,12 +230,14 @@ namespace notedump
                     pageRTB.Name = "pageRTB_music_ind";
                     pageRTB.LoadFile("nd_music_indie.txt", RichTextBoxStreamType.PlainText);
                     nd_a_music_ind = true;
+                    nd_active[3] = true;
                     NDstatusStripLabel.Text = "music indie activated!";
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
                     pageRTB.Name = "pageRTB_music_met";
                     pageRTB.LoadFile("nd_music_metal.txt", RichTextBoxStreamType.PlainText);
+                    nd_active[4] = true;
                     nd_a_music_met = true;
                     NDstatusStripLabel.Text = "music metal activated!";
                 }
@@ -194,6 +247,7 @@ namespace notedump
                 {
                     pageRTB.Name = "pageRTB_links_all";
                     pageRTB.LoadFile("nd_links_all.txt", RichTextBoxStreamType.PlainText);
+                    nd_active[5] = true;
                     nd_a_links_all = true;
                     NDstatusStripLabel.Text = "links all activated!";
                 }
@@ -201,6 +255,7 @@ namespace notedump
                 {
                     pageRTB.Name = "pageRTB_links_arts";
                     pageRTB.LoadFile("nd_links_arts.txt", RichTextBoxStreamType.PlainText);
+                    nd_active[7] = true;
                     nd_a_links_arts = true;
                     NDstatusStripLabel.Text = "links articles activated!";
                 }
@@ -208,8 +263,9 @@ namespace notedump
                 {
                     pageRTB.Name = "pageRTB_links_yt";
                     pageRTB.LoadFile("nd_links_yt.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_links_yt;
                     nd_a_links_yt = true;
+                    nd_active[6] = true;
+                    NDstatusStripLabel.Text = "links youtube activated!";
                 }
             } else if (eventControl == tabControlTD)
             {
@@ -217,16 +273,26 @@ namespace notedump
                 {
                     pageRTB.Name = "pageRTB_td_rem";
                     pageRTB.LoadFile("nd_td_remind.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_td_remind;
+                    nd_active[0] = true;
                     nd_a_td_rem = true;
+                    NDstatusStripLabel.Text = "td remind activated!";
                 } else if (tabControlTD.SelectedTab == tabTDTD)
                 {
                     pageRTB.Name = "pageRTB_td_td";
                     pageRTB.LoadFile("nd_td_td.txt", RichTextBoxStreamType.PlainText);
-                    //pageRTB.Text = Properties.Resources.nd_td_td;
                     nd_a_td_td = true;
+                    nd_active[1] = true;
+                    NDstatusStripLabel.Text = "td td activated!";
                 }
             }
+            NDstatusStrip.Refresh();
+        }
+        //for activetabs:
+        //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
+        //5: links_all, 6: links_yt, 7: links_arts, 8: movies
+        private void NDFlushButton_MouseClick_Factored(object sender, MouseEventArgs e)
+        {
+
         }
 
         //for activetabs:
@@ -244,7 +310,7 @@ namespace notedump
                     //save rtb
                     Control[] rtb = tabTDRemind.Controls.Find("pageRTB_td_rem", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
-                    rtb69.Text = rtb69.Text + 'r' + '\n' + NDtextBox.Text;
+                    rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
                 }
                 else
                 {
@@ -296,6 +362,13 @@ namespace notedump
                     Control[] rtb = tabMusicAll.Controls.Find("pageRTB_music_all", true);
                     RichTextBox rtb69 = (RichTextBox)rtb[0];
                     rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+
+                    string tpname = "tabMusicAll";
+                    var lol69 = typeof(TabPage);
+                    var lol70 = lol69.GetField(tpname);
+                    //TabPage testpage = (TabPage) this.GetType().GetField(tpname).GetValue(this);
+                    Console.WriteLine(lol70.ToString());
+                    Console.WriteLine("end of debug");
                 }
                 else
                 {

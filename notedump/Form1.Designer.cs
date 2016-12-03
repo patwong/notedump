@@ -119,6 +119,9 @@
             // 
             // tabControlMain
             // 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabMainTD);
             this.tabControlMain.Controls.Add(this.tabMainMusic);
             this.tabControlMain.Controls.Add(this.tabMainLinks);
@@ -217,7 +220,7 @@
             this.tabMusicIndie.Location = new System.Drawing.Point(4, 29);
             this.tabMusicIndie.Name = "tabMusicIndie";
             this.tabMusicIndie.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicIndie.Size = new System.Drawing.Size(937, 211);
+            this.tabMusicIndie.Size = new System.Drawing.Size(941, 211);
             this.tabMusicIndie.TabIndex = 2;
             this.tabMusicIndie.Text = "Indie";
             this.tabMusicIndie.UseVisualStyleBackColor = true;
@@ -227,7 +230,7 @@
             this.tabMusicMetal.Location = new System.Drawing.Point(4, 29);
             this.tabMusicMetal.Name = "tabMusicMetal";
             this.tabMusicMetal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicMetal.Size = new System.Drawing.Size(937, 211);
+            this.tabMusicMetal.Size = new System.Drawing.Size(941, 211);
             this.tabMusicMetal.TabIndex = 3;
             this.tabMusicMetal.Text = "Metal";
             this.tabMusicMetal.UseVisualStyleBackColor = true;
@@ -237,7 +240,7 @@
             this.tabMusicPlus.Location = new System.Drawing.Point(4, 29);
             this.tabMusicPlus.Name = "tabMusicPlus";
             this.tabMusicPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusicPlus.Size = new System.Drawing.Size(937, 211);
+            this.tabMusicPlus.Size = new System.Drawing.Size(941, 211);
             this.tabMusicPlus.TabIndex = 1;
             this.tabMusicPlus.Text = "+";
             this.tabMusicPlus.UseVisualStyleBackColor = true;
@@ -283,7 +286,7 @@
             this.tabLinksYT.Location = new System.Drawing.Point(4, 29);
             this.tabLinksYT.Name = "tabLinksYT";
             this.tabLinksYT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksYT.Size = new System.Drawing.Size(937, 211);
+            this.tabLinksYT.Size = new System.Drawing.Size(941, 211);
             this.tabLinksYT.TabIndex = 2;
             this.tabLinksYT.Text = "YouTube";
             this.tabLinksYT.UseVisualStyleBackColor = true;
@@ -293,7 +296,7 @@
             this.tabLinksArticles.Location = new System.Drawing.Point(4, 29);
             this.tabLinksArticles.Name = "tabLinksArticles";
             this.tabLinksArticles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksArticles.Size = new System.Drawing.Size(937, 211);
+            this.tabLinksArticles.Size = new System.Drawing.Size(941, 211);
             this.tabLinksArticles.TabIndex = 3;
             this.tabLinksArticles.Text = "Articles";
             this.tabLinksArticles.UseVisualStyleBackColor = true;
@@ -303,7 +306,7 @@
             this.tabLinksPlus.Location = new System.Drawing.Point(4, 29);
             this.tabLinksPlus.Name = "tabLinksPlus";
             this.tabLinksPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLinksPlus.Size = new System.Drawing.Size(937, 211);
+            this.tabLinksPlus.Size = new System.Drawing.Size(941, 211);
             this.tabLinksPlus.TabIndex = 1;
             this.tabLinksPlus.Text = "+";
             this.tabLinksPlus.UseVisualStyleBackColor = true;
