@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuStrip_open = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStrip_GetStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_saveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_saveAllExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,26 +82,27 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuStrip_open,
+            this.MenuStrip_GetStatus,
             this.MenuStrip_saveAll,
             this.MenuStrip_saveAllExit,
             this.MenuStrip_exit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.fileToolStripMenuItem.Text = "Menu";
             // 
-            // MenuStrip_open
+            // MenuStrip_GetStatus
             // 
-            this.MenuStrip_open.Name = "MenuStrip_open";
-            this.MenuStrip_open.Size = new System.Drawing.Size(226, 30);
-            this.MenuStrip_open.Text = "Open";
+            this.MenuStrip_GetStatus.Name = "MenuStrip_GetStatus";
+            this.MenuStrip_GetStatus.Size = new System.Drawing.Size(226, 30);
+            this.MenuStrip_GetStatus.Text = "Get Status";
+            this.MenuStrip_GetStatus.Click += new System.EventHandler(this.get_active_tab);
             // 
             // MenuStrip_saveAll
             // 
             this.MenuStrip_saveAll.Name = "MenuStrip_saveAll";
             this.MenuStrip_saveAll.Size = new System.Drawing.Size(226, 30);
             this.MenuStrip_saveAll.Text = "Save All";
-            this.MenuStrip_saveAll.Click += new System.EventHandler(this.menuStrip_saveAll_Click);
+            this.MenuStrip_saveAll.Click += new System.EventHandler(this.saveAllClick);
             // 
             // MenuStrip_saveAllExit
             // 
@@ -403,7 +404,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MenuStrip_open;
+        private System.Windows.Forms.ToolStripMenuItem MenuStrip_GetStatus;
         private System.Windows.Forms.ToolStripMenuItem MenuStrip_exit;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabMainMusic;

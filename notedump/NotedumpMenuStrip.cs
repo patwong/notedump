@@ -32,6 +32,23 @@ namespace notedump
             //exits without saving
             this.Close();
         }
+        private void saveAllClick(object sender, EventArgs e)
+        {
+            int len = 9;
+            Control[] rtb;
+            RichTextBox rtb69;
+            for(int i = 0; i < len; i++)
+            {
+                if(nd_active[i])
+                {
+                    rtb = tabarray[i].Controls.Find(activetab_rtb_name[i], true);
+                    rtb69 = (RichTextBox)rtb[0];
+                    rtb69.SaveFile(subtabfile[i], RichTextBoxStreamType.PlainText);
+                }
+            }
+            NDstatusStripLabel.Text = "saved everything";
+            NDstatusStrip.Refresh();
+        }
         private void menuStrip_saveAll_Click(object sender, EventArgs e)
         {
             //event for when "Save All" is clicked
@@ -39,57 +56,57 @@ namespace notedump
             RichTextBox rtb69;
             if (nd_a_links_all)
             {
-                rtb = tabLinksAll.Controls.Find("pageRTB_links_all", true);
+                rtb = tabLinksAll.Controls.Find(activetab_rtb_name[5], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_links_all.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[5], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_links_arts) //checks if "links_arts" RTB is active
             {
-                rtb = tabLinksArticles.Controls.Find("pageRTB_links_arts", true);
+                rtb = tabLinksArticles.Controls.Find(activetab_rtb_name[7], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_links_arts.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[7], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_links_yt) //checks if "links_yt" RTB is active
             {
-                rtb = tabLinksYT.Controls.Find("pageRTB_links_yt", true);
+                rtb = tabLinksYT.Controls.Find(activetab_rtb_name[6], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_links_yt.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[6], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_movies) //checks if "Movies" RTB is active
             {                
-                rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
+                rtb = tabMainMovies.Controls.Find(activetab_rtb_name[8], true);
                 rtb69 = (RichTextBox)rtb[0];                         
-                rtb69.SaveFile("nd_movies.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[8], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_music_all) //checks if "music_all" RTB is active
             {
-                rtb = tabMusicAll.Controls.Find("pageRTB_music_all", true);
+                rtb = tabMusicAll.Controls.Find(activetab_rtb_name[2], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_music_indie.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[2], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_music_ind) //checks if "music_ind" RTB is active
             {
-                rtb = tabMusicIndie.Controls.Find("pageRTB_music_ind", true);
+                rtb = tabMusicIndie.Controls.Find(activetab_rtb_name[3], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_music_indie.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[3], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_music_met) //checks if "music_met" RTB is active
             {
-                rtb = tabMusicMetal.Controls.Find("pageRTB_music_met", true);
+                rtb = tabMusicMetal.Controls.Find(activetab_rtb_name[4], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_music_metal.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[4], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_td_rem) //checks if "td_rem" RTB is active
             {
-                rtb = tabTDRemind.Controls.Find("pageRTB_td_rem", true);
+                rtb = tabTDRemind.Controls.Find(activetab_rtb_name[0], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_td_remind.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[0], RichTextBoxStreamType.PlainText);
             }
             if (nd_a_td_td) //checks if "td_td" RTB is active
             {
-                rtb = tabTDTD.Controls.Find("pageRTB_td_td", true);
+                rtb = tabTDTD.Controls.Find(activetab_rtb_name[1], true);
                 rtb69 = (RichTextBox)rtb[0];
-                rtb69.SaveFile("nd_td_td.txt", RichTextBoxStreamType.PlainText);
+                rtb69.SaveFile(subtabfile[1], RichTextBoxStreamType.PlainText);
             }
             NDstatusStripLabel.Text = "saved everything";
             NDstatusStrip.Refresh();

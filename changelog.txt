@@ -108,4 +108,7 @@ notedump change log
 	https://msdn.microsoft.com/en-us/library/490f96s2.aspx
 - need to: merge MainMovies doubleclick into the general doubleclick event handler
 	- forgot to set nd_active[8] = true
+	- will NOT merge with the general doubleclick handler
+		- will need to move around the controls and rtb creation code
 - changed File.AppendAllText(...,X) to output correct newline
+- changed "Save All" to cleaner version
