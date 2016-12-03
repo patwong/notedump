@@ -34,16 +34,18 @@ namespace notedump
         private string[] subtabfile;
         private bool[] nd_active;
         private TabPage[] tabarray;
+        private string[] activetab_name;
 
         public NotedumpMainForm()
         {
             InitializeComponent();
             //9 is the number of hardcoded pages
             activetabs = new int[9];
-            activetab_rtb_name = new string[9];            
+            activetab_rtb_name = new string[9];
             subtabfile = new string[9];
             nd_active = new bool[9];
             tabarray = new TabPage[9];
+            activetab_name = new string[9];
 
             //don't want to initialize a jagged array; two separate arrays easier :)
 
@@ -54,6 +56,8 @@ namespace notedump
                 switch(i)
                 {
                     case 0:
+                        //default tab active is TD remind - first visible tab
+                        activetabs[0] = 1;
                         tabarray[i] = tabTDRemind;
                         activetab_rtb_name[i] = "pageRTB_td_rem";
                         subtabfile[i] = "nd_td_remind.txt";
@@ -102,6 +106,18 @@ namespace notedump
                 
             }
         }
+        private void get_active_tab()
+        {
+            for (int c = 0; c < 9; c++)
+            {
+                if(activetabs[c] == 1)
+                {
+                    NDstatusStripLabel.Text = "active tab:" + "";
+                    NDstatusStrip.Refresh();
+                    break;
+                }
+            }
+        }
         private void set_active_tab(int tab_num)
         {
             for(int i = 0; i < 9; i++)
@@ -115,6 +131,7 @@ namespace notedump
                 }
             }
         }
+
         //tab code       
         private void tabControls_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -318,7 +335,7 @@ namespace notedump
                             Control[] rtb = tabarray[i].Controls.Find(activetab_rtb_name[i], true);
                             RichTextBox rtb69 = (RichTextBox)rtb[0];
                             rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                            NDstatusStripLabel.Text = "flushed!";
+                            NDstatusStripLabel.Text = "flushed to:" + subtabfile[i];
                         }
                         else
                         {
@@ -329,8 +346,10 @@ namespace notedump
                             }
                             else
                             {
-                                File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                                NDstatusStripLabel.Text = "file written out!";
+                                string toappend = Environment.NewLine + NDtextBox.Text;
+                                File.AppendAllText(filepath, toappend);
+                                string ndstatus1 = "file written out: " + subtabfile[i];
+                                NDstatusStripLabel.Text = ndstatus1;
                             }
                         }
                         NDtextBox.Clear();
@@ -346,251 +365,6 @@ namespace notedump
             NDstatusStrip.Refresh();
         }
 
-        //for activetabs:
-        //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
-        //5: links_all, 6: links_yt, 7: links_arts, 8: movies
-        private void NDFlushButton_MouseClick(object sender, MouseEventArgs e)
-        {
-            //event handler for mouse click on Flush button
-            string lchk = NDtextBox.Text;
-            //sanity check
-            if (lchk.Length == 0)
-            {
-                NDstatusStripLabel.Text = "nothing in textbox";
-                NDstatusStrip.Refresh();
-            }
-            else
-            {
-                Console.WriteLine("flush!"); //confirms that clicking button works
-                if (activetabs[0] == 1)
-                {
-                    if (nd_a_td_rem)
-                    {
-                        //find tabobject for tabTDRemind
-                        //save rtb
-                        Control[] rtb = tabTDRemind.Controls.Find("pageRTB_td_rem", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        //do i allow unopened tab to have contents flushed?
-                        //let's try first...
-                        //it works!!
-                        string filepath = "nd_td_remind.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[1] == 1)
-                {
-                    if (nd_a_td_td)
-                    {
-                        //find tabobject for tabTDTD
-                        //save rtb
-                        Control[] rtb = tabTDTD.Controls.Find("pageRTB_td_td", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_td_td.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[2] == 1)
-                {
-                    if (nd_a_music_all)
-                    {
-                        //find tabobject for tabMusicAll
-                        //save rtb
-                        Control[] rtb = tabMusicAll.Controls.Find("pageRTB_music_all", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-
-                        string tpname = "tabMusicAll";
-                        var lol69 = typeof(TabPage);
-                        var lol70 = lol69.GetField(tpname);
-                        //TabPage testpage = (TabPage) this.GetType().GetField(tpname).GetValue(this);
-                        Console.WriteLine(lol70.ToString());
-                        Console.WriteLine("end of debug");
-                    }
-                    else
-                    {
-                        string filepath = "nd_music_all.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[3] == 1)
-                {
-                    if (nd_a_music_ind)
-                    {
-                        //find tabobject for tabMusicIndie
-                        //save rtb
-                        Control[] rtb = tabMusicIndie.Controls.Find("pageRTB_music_ind", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_music_ind.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[4] == 1)
-                {
-                    if (nd_a_music_met)
-                    {
-                        //find tabobject for tabMusicMetal
-                        //save rtb
-                        Control[] rtb = tabMusicMetal.Controls.Find("pageRTB_music_met", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_music_metal.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[5] == 1)
-                {
-                    if (nd_a_links_all)
-                    {
-                        //find tabobject for tabLinksAll
-                        //save rtb
-                        Control[] rtb = tabLinksAll.Controls.Find("pageRTB_links_all", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_links_all.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[6] == 1)
-                {
-                    if (nd_a_links_yt)
-                    {
-                        //find tabobject for tabLinksYT
-                        //save rtb
-                        Control[] rtb = tabLinksYT.Controls.Find("pageRTB_links_yt", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_links_yt.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[7] == 1)
-                {
-                    if (nd_a_links_arts)
-                    {
-                        //find tabobject for tabLinkArticles
-                        //save rtb
-                        Control[] rtb = tabLinksArticles.Controls.Find("pageRTB_links_arts", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_links_arts.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                else if (activetabs[8] == 1)
-                {
-                    if (nd_a_movies) //checks if "Movies" RTB is active
-                    {
-                        //find tabobject for tabMainMovies
-                        //save rtb                          
-                        Control[] rtb = tabMainMovies.Controls.Find("pageRTB_movies", true);
-                        RichTextBox rtb69 = (RichTextBox)rtb[0];
-                        rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                    }
-                    else
-                    {
-                        string filepath = "nd_movies.txt";
-                        if (!(File.Exists(filepath)))
-                        {
-                            MessageBox.Show("file doesn't exist!");
-                        }
-                        else
-                        {
-                            File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
-                            Console.WriteLine("file written out!!");
-                        }
-                    }
-                }
-                NDtextBox.Clear();
-            }
-        }
 
         private void tabControlMain_MouseDoubleClick(object sender, MouseEventArgs e)
         {
