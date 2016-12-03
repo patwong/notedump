@@ -111,4 +111,5 @@ notedump change log
 	- will NOT merge with the general doubleclick handler
 		- will need to move around the controls and rtb creation code
 - changed File.AppendAllText(...,X) to output correct newline
-- changed "Save All" to cleaner version
+- changed "Save All" to simpler version
+- changed "Save All and Exit" to simpler version

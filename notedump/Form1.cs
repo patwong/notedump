@@ -39,6 +39,11 @@ namespace notedump
         public NotedumpMainForm()
         {
             InitializeComponent();
+
+            /******************************************************/
+            /*********** all my initialization code **************/
+            /******************************************************/
+
             //9 is the number of hardcoded pages
             activetabs = new int[9];
             activetab_rtb_name = new string[9];
@@ -47,8 +52,7 @@ namespace notedump
             tabarray = new TabPage[9];
             activetab_name = new string[9];
 
-            //don't want to initialize a jagged array; two separate arrays easier :)
-
+            //initializes all the arrays
             for (int i = 0; i < 9; i++)
             {
                 activetabs[i] = 0;
@@ -115,6 +119,10 @@ namespace notedump
                 
             }
         }
+
+        //displays the name of the active name in the status bar
+        //useful since i didn't make the first visible subtab "active"
+        //when menu tabs are changed
         private void get_active_tab(object sender, EventArgs e)
         {
             for (int c = 0; c < 9; c++)
@@ -128,6 +136,10 @@ namespace notedump
             }
         }
 
+        //sets the active tab
+        //binary value a tab's active status
+        //0: inactive, 1: active
+        //only one tab is active
         private void set_active_tab(int tab_num)
         {
             for(int i = 0; i < 9; i++)
@@ -146,7 +158,8 @@ namespace notedump
         private void tabControls_SelectedIndexChanged(object sender, EventArgs e)
         {
             //event handler for when selected tab changes
-            //used to create new tab
+            //used to create new tab and
+            //to indicate a change in the currently active tab
             bool RealSelectedTab = false;
             string tabName = "";
             TabControl tabControlEvent = (TabControl)sender;
@@ -251,7 +264,9 @@ namespace notedump
             TabPage eventPage = eventControl.SelectedTab;
 
             //creating a textbox immediately on doubleclick without check
-            //might not be safe, but only tabs get this event
+            //might not be safe, but only subtabs get this event
+            //only menutab that gets a rtb is Movies and it's handled
+            //by its own event handler
             RichTextBox pageRTB = new RichTextBox();
             eventPage.Controls.Add(pageRTB);
             pageRTB.Dock = DockStyle.Fill;
@@ -333,6 +348,7 @@ namespace notedump
         //5: links_all, 6: links_yt, 7: links_arts, 8: movies
         private void NDFlushButton_MouseClick_Factored(object sender, MouseEventArgs e)
         {
+            //flushes out text in the textbox to the currently active tab
             string checkiftext = NDtextBox.Text;
             if (checkiftext.Length > 0)
             {
@@ -347,7 +363,7 @@ namespace notedump
                             Control[] rtb = tabarray[i].Controls.Find(activetab_rtb_name[i], true);
                             RichTextBox rtb69 = (RichTextBox)rtb[0];
                             rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
-                            NDstatusStripLabel.Text = "flushed to:" + subtabfile[i];
+                            NDstatusStripLabel.Text = "flushed to: " + subtabfile[i];
                         }
                         else
                         {
@@ -379,6 +395,7 @@ namespace notedump
 
         private void tabControlMain_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            //movies gets its own event handler
             if(tabControlMain.SelectedTab == tabMainMovies)
             {                
                 RichTextBox pageRTB = new RichTextBox();
@@ -388,8 +405,6 @@ namespace notedump
                 pageRTB.LoadFile(subtabfile[8], RichTextBoxStreamType.PlainText);
                 nd_a_movies = true;
                 nd_active[8] = true;
-
-                //Console.WriteLine("thisthis");
             }
         }       
     }
