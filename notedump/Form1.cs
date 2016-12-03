@@ -292,7 +292,43 @@ namespace notedump
         //5: links_all, 6: links_yt, 7: links_arts, 8: movies
         private void NDFlushButton_MouseClick_Factored(object sender, MouseEventArgs e)
         {
-
+            string checkiftext = NDstatusStripLabel.Text;
+            if (checkiftext.Length > 0)
+            {
+                bool yesorno = true;
+                int i = 0;
+                while (yesorno)
+                {
+                    if (activetabs[i] == 1)
+                    {
+                        if (nd_active[i] == true)
+                        {
+                            //need to change tabMainMovies to a generic
+                            Control[] rtb = tabMainMovies.Controls.Find(activetab_rtb_name[i], true);
+                            RichTextBox rtb69 = (RichTextBox)rtb[0];
+                            rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
+                            NDstatusStripLabel.Text = "flushed!";
+                        }
+                        else
+                        {
+                            string filepath = subtabfile[i];
+                            if (!(File.Exists(filepath)))
+                            {
+                                MessageBox.Show("file doesn't exist!");
+                            }
+                            else
+                            {
+                                File.AppendAllText(filepath, '\r' + '\n' + NDtextBox.Text);
+                                NDstatusStripLabel.Text = "file written out!";
+                            }
+                        }
+                        yesorno = false;
+                    }
+                    i++;
+                }
+            }
+            NDtextBox.Clear();
+            NDstatusStrip.Refresh();
         }
 
         //for activetabs:

@@ -95,3 +95,7 @@ notedump change log
 	also, have status bar docked at bottom otherwise text doesn't appear
 - removing debugging statements and shifting it to status bar
 - refactoring NDFlush to a shorter version using reflection
+
+
+2016.12.03
+- refactored NDFlush code disappeared; rewrote it
