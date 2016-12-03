@@ -303,7 +303,8 @@ namespace notedump
                     {
                         if (nd_active[i] == true)
                         {
-                            //need to change tabMainMovies to a generic
+                            //need to change tabMainMovies to a 
+                            //use dictionary or what?
                             Control[] rtb = tabMainMovies.Controls.Find(activetab_rtb_name[i], true);
                             RichTextBox rtb69 = (RichTextBox)rtb[0];
                             rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
@@ -322,12 +323,16 @@ namespace notedump
                                 NDstatusStripLabel.Text = "file written out!";
                             }
                         }
+                        NDtextBox.Clear();
                         yesorno = false;
                     }
                     i++;
                 }
+            } else
+            {
+                //hello
+                NDstatusStripLabel.Text = "no text to be flushed";
             }
-            NDtextBox.Clear();
             NDstatusStrip.Refresh();
         }
 
