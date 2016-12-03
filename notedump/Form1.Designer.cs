@@ -349,7 +349,7 @@
             this.NDFlushButton.TabIndex = 3;
             this.NDFlushButton.Text = "Flush";
             this.NDFlushButton.UseVisualStyleBackColor = true;
-            this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick);
+            this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick_Factored);
             // 
             // NDstatusStrip
             // 

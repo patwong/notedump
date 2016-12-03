@@ -33,14 +33,17 @@ namespace notedump
         private string[] activetab_rtb_name;
         private string[] subtabfile;
         private bool[] nd_active;
+        private TabPage[] tabarray;
 
         public NotedumpMainForm()
         {
             InitializeComponent();
+            //9 is the number of hardcoded pages
             activetabs = new int[9];
             activetab_rtb_name = new string[9];            
             subtabfile = new string[9];
             nd_active = new bool[9];
+            tabarray = new TabPage[9];
 
             //don't want to initialize a jagged array; two separate arrays easier :)
 
@@ -51,38 +54,47 @@ namespace notedump
                 switch(i)
                 {
                     case 0:
+                        tabarray[i] = tabTDRemind;
                         activetab_rtb_name[i] = "pageRTB_td_rem";
                         subtabfile[i] = "nd_td_remind.txt";
                         break;
                     case 1:
+                        tabarray[i] = tabTDTD;
                         activetab_rtb_name[i] = "pageRTB_td_td";
                         subtabfile[i] = "nd_td_td.txt";
                         break;
                     case 2:
+                        tabarray[i] = tabMusicAll;
                         activetab_rtb_name[i] = "pageRTB_music_all";
                         subtabfile[i] = "nd_music_all.txt";
                         break;
                     case 3:
+                        tabarray[i] = tabMusicIndie;
                         activetab_rtb_name[i] = "pageRTB_music_ind";
                         subtabfile[i] = "nd_music_ind.txt";
                         break;
                     case 4:
+                        tabarray[i] = tabMusicMetal;
                         activetab_rtb_name[i] = "pageRTB_music_met";
                         subtabfile[i] = "nd_music_metal.txt";
                         break;
                     case 5:
+                        tabarray[i] = tabLinksAll;
                         activetab_rtb_name[i] = "pageRTB_links_all";
                         subtabfile[i] = "nd_links_all.txt";
                         break;
                     case 6:
+                        tabarray[i] = tabLinksYT;
                         activetab_rtb_name[i] = "pageRTB_links_yt";
                         subtabfile[i] = "nd_links_yt.txt";
                         break;
                     case 7:
+                        tabarray[i] = tabLinksArticles;
                         activetab_rtb_name[i] = "pageRTB_links_arts";
                         subtabfile[i] = "nd_links_arts.txt";
                         break;
                     case 8:
+                        tabarray[i] = tabMainMovies;
                         activetab_rtb_name[i] = "pageRTB_movies";
                         subtabfile[i] = "nd_movies.txt";
                         break;
@@ -303,9 +315,7 @@ namespace notedump
                     {
                         if (nd_active[i] == true)
                         {
-                            //need to change tabMainMovies to a searchable string,
-                            //i.e. use dictionary or what?
-                            Control[] rtb = tabMainMovies.Controls.Find(activetab_rtb_name[i], true);
+                            Control[] rtb = tabarray[i].Controls.Find(activetab_rtb_name[i], true);
                             RichTextBox rtb69 = (RichTextBox)rtb[0];
                             rtb69.Text = rtb69.Text + '\r' + '\n' + NDtextBox.Text;
                             NDstatusStripLabel.Text = "flushed!";
@@ -592,6 +602,7 @@ namespace notedump
                 pageRTB.Dock = DockStyle.Fill;
                 pageRTB.LoadFile("nd_movies.txt", RichTextBoxStreamType.PlainText);
                 nd_a_movies = true;
+                nd_active[8] = true;
 
                 //Console.WriteLine("thisthis");
             }

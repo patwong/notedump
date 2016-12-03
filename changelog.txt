@@ -99,3 +99,13 @@ notedump change log
 
 2016.12.03
 - refactored NDFlush code disappeared; rewrote it
+	- completed?
+- TabPages is a reference type; a class
+	- for refactored code, created an array of TabPages where each element points to an existing TabPage
+	- in C#, declaring a variable and assigning its value to be another existing variable of reference type does not instantiate
+	another value in memory; instead it works like a pointer
+	source: notes, and
+	https://msdn.microsoft.com/en-us/library/490f96s2.aspx
+- need to: merge MainMovies doubleclick into the general doubleclick event handler
+	- forgot to set nd_active[8] = true
+-
