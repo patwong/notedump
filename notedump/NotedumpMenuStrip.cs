@@ -32,6 +32,23 @@ namespace notedump
             //exits without saving
             this.Close();
         }
+
+        //displays the name of the active name in the status bar
+        //useful since i didn't make the first visible subtab "active"
+        //when menu tabs are changed
+        private void get_active_tab(object sender, EventArgs e)
+        {
+            for (int c = 0; c < 9; c++)
+            {
+                if (activetabs[c] == 1)
+                {
+                    NDstatusStripLabel.Text = "active tab: " + activetab_name[c];
+                    NDstatusStrip.Refresh();
+                    break;
+                }
+            }
+        }
+
         private void saveAllClick(object sender, EventArgs e)
         {
             int len = 9;
