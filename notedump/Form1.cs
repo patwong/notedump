@@ -29,12 +29,14 @@ namespace notedump
         */
         //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
         //5: links_all, 6: links_yt, 7: links_arts, 8: movies
+        //9: anime, 10: books, 11: games, 12: movies (get)
         private int[] activetabs;
         private string[] activetab_rtb_name;
         private string[] subtabfile;
         private bool[] nd_active;
         private TabPage[] tabarray;
         private string[] activetab_name;
+        private int num_pages = 13;
 
         public NotedumpMainForm()
         {
@@ -44,16 +46,17 @@ namespace notedump
             /*********** all my initialization code **************/
             /******************************************************/
 
+ 
             //9 is the number of hardcoded pages
-            activetabs = new int[9];
-            activetab_rtb_name = new string[9];
-            subtabfile = new string[9];
-            nd_active = new bool[9];
-            tabarray = new TabPage[9];
-            activetab_name = new string[9];
+            activetabs = new int[num_pages];
+            activetab_rtb_name = new string[num_pages];
+            subtabfile = new string[num_pages];
+            nd_active = new bool[num_pages];
+            tabarray = new TabPage[num_pages];
+            activetab_name = new string[num_pages];
 
             //initializes all the arrays
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < num_pages; i++)
             {
                 activetabs[i] = 0;
                 nd_active[i] = false;
@@ -115,6 +118,30 @@ namespace notedump
                         subtabfile[i] = "nd_movies.txt";
                         activetab_name[i] = "Movies";
                         break;
+                    case 9:
+                        tabarray[i] = tabGetAnime;
+                        activetab_rtb_name[i] = "pageRTB_anime";
+                        subtabfile[i] = "nd_get_anime.txt";
+                        activetab_name[i] = "Anime";
+                        break;
+                    case 10:
+                        tabarray[i] = tabGetBooks;
+                        activetab_rtb_name[i] = "pageRTB_books";
+                        subtabfile[i] = "nd_get_books.txt";
+                        activetab_name[i] = "Books";
+                        break;
+                    case 11:
+                        tabarray[i] = tabGetGames;
+                        activetab_rtb_name[i] = "pageRTB_games";
+                        subtabfile[i] = "nd_get_games.txt";
+                        activetab_name[i] = "Games";
+                        break;
+                    case 12:
+                        tabarray[i] = tabGetMovies;
+                        activetab_rtb_name[i] = "pageRTB_Movies";
+                        subtabfile[i] = "nd_get_movies.txt";
+                        activetab_name[i] = "Movies";
+                        break;
                 }
                 
             }
@@ -126,7 +153,7 @@ namespace notedump
         //only one tab is active
         private void set_active_tab(int tab_num)
         {
-            for(int i = 0; i < 9; i++)
+            for(int i = 0; i < num_pages; i++)
             {
                 if(i == tab_num)
                 {
@@ -229,6 +256,29 @@ namespace notedump
                     set_active_tab(1);
                 }
             }
+            else if (tabControlEvent == tabControlGet)
+            {
+                if(tabControlGet.SelectedTab == tabGetAnime)
+                {
+                    NDstatusStripLabel.Text = "active tab: " + activetab_name[9];
+                    set_active_tab(9);
+                }
+                else if(tabControlGet.SelectedTab == tabGetBooks)
+                {
+                    NDstatusStripLabel.Text = "active tab: " + activetab_name[10];
+                    set_active_tab(10);
+                }
+                else if(tabControlGet.SelectedTab == tabGetGames)
+                {
+                    NDstatusStripLabel.Text = "active tab: " + activetab_name[11];
+                    set_active_tab(11);
+                }
+                else if(tabControlGet.SelectedTab == tabGetMovies)
+                {
+                    NDstatusStripLabel.Text = "active tab: " + activetab_name[12];
+                    set_active_tab(12);
+                }
+            }
             if (RealSelectedTab)
             {
                 tabName = tabName + (tabControlEvent.TabCount + 1).ToString();
@@ -280,7 +330,8 @@ namespace notedump
                     nd_a_music_met = true;
                     NDstatusStripLabel.Text = "music metal activated!";
                 }
-            } else if (eventControl == tabControlLinks)
+            }
+            else if (eventControl == tabControlLinks)
             {
                 if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
@@ -306,7 +357,8 @@ namespace notedump
                     nd_active[6] = true;
                     NDstatusStripLabel.Text = "links youtube activated!";
                 }
-            } else if (eventControl == tabControlTD)
+            }
+            else if (eventControl == tabControlTD)
             {
                 if (tabControlTD.SelectedTab == tabTDRemind)
                 {
@@ -324,9 +376,36 @@ namespace notedump
                     NDstatusStripLabel.Text = "td td activated!";
                 }
             }
+            else if(eventControl == tabControlGet)
+            {
+                //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
+                //5: links_all, 6: links_yt, 7: links_arts, 8: movies
+                //9: anime, 10: books, 11: games, 12: movies (get)
+                if (tabControlGet.SelectedTab == tabGetAnime)
+                {
+                    pageRTB.Name = activetab_rtb_name[9];
+                    pageRTB.LoadFile(subtabfile[9], RichTextBoxStreamType.PlainText);
+                    nd_active[9] = true;
+                    nd_a_get_anime = true;
+                    NDstatusStripLabel.Text = "get - anime activated!";
+                }
+                else if(tabControlGet.SelectedTab == tabGetBooks)
+                {
+                    pageRTB.Name = activetab_rtb_name[10];
+                    pageRTB.LoadFile(subtabfile[10], RichTextBoxStreamType.PlainText);
+                    nd_active[10] = true;
+                    tabMouseDoubleClick_Factored(10, pageRTB);
+                    NDstatusStripLabel.Text = "get - books activated!";
+                }
+            }
             NDstatusStrip.Refresh();
         }
-
+        private void tabMouseDoubleClick_Factored(int tab_num, RichTextBox pageRTB)
+        {
+            pageRTB.Name = activetab_rtb_name[tab_num];
+            pageRTB.LoadFile(subtabfile[tab_num], RichTextBoxStreamType.PlainText);
+            nd_active[tab_num] = true;
+        }
         //for activetabs:
         //0: td_reminders, 1: td_td, 2: music_all, 3: music_ind, 4: music_met
         //5: links_all, 6: links_yt, 7: links_arts, 8: movies
