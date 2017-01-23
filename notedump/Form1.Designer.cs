@@ -57,6 +57,12 @@
             this.NDFlushButton = new System.Windows.Forms.Button();
             this.NDstatusStrip = new System.Windows.Forms.StatusStrip();
             this.NDstatusStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tabMainGet = new System.Windows.Forms.TabPage();
+            this.tabControlGet = new System.Windows.Forms.TabControl();
+            this.tabGetMovies = new System.Windows.Forms.TabPage();
+            this.tabGetGames = new System.Windows.Forms.TabPage();
+            this.tabGetAnime = new System.Windows.Forms.TabPage();
+            this.tabGetBooks = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainTD.SuspendLayout();
@@ -66,6 +72,8 @@
             this.tabMainLinks.SuspendLayout();
             this.tabControlLinks.SuspendLayout();
             this.NDstatusStrip.SuspendLayout();
+            this.tabMainGet.SuspendLayout();
+            this.tabControlGet.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -126,6 +134,7 @@
             this.tabControlMain.Controls.Add(this.tabMainTD);
             this.tabControlMain.Controls.Add(this.tabMainMusic);
             this.tabControlMain.Controls.Add(this.tabMainLinks);
+            this.tabControlMain.Controls.Add(this.tabMainGet);
             this.tabControlMain.Controls.Add(this.tabMainMovies);
             this.tabControlMain.Controls.Add(this.tabMainPlus);
             this.tabControlMain.Location = new System.Drawing.Point(12, 43);
@@ -369,6 +378,70 @@
             this.NDstatusStripLabel.Size = new System.Drawing.Size(126, 25);
             this.NDstatusStripLabel.Text = "None Selected";
             // 
+            // tabMainGet
+            // 
+            this.tabMainGet.Controls.Add(this.tabControlGet);
+            this.tabMainGet.Location = new System.Drawing.Point(4, 29);
+            this.tabMainGet.Name = "tabMainGet";
+            this.tabMainGet.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainGet.Size = new System.Drawing.Size(955, 250);
+            this.tabMainGet.TabIndex = 5;
+            this.tabMainGet.Text = "Get";
+            this.tabMainGet.UseVisualStyleBackColor = true;
+            // 
+            // tabControlGet
+            // 
+            this.tabControlGet.Controls.Add(this.tabGetMovies);
+            this.tabControlGet.Controls.Add(this.tabGetGames);
+            this.tabControlGet.Controls.Add(this.tabGetAnime);
+            this.tabControlGet.Controls.Add(this.tabGetBooks);
+            this.tabControlGet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlGet.Location = new System.Drawing.Point(3, 3);
+            this.tabControlGet.Name = "tabControlGet";
+            this.tabControlGet.SelectedIndex = 0;
+            this.tabControlGet.Size = new System.Drawing.Size(949, 244);
+            this.tabControlGet.TabIndex = 0;
+            this.tabControlGet.SelectedIndexChanged += new System.EventHandler(this.tabControls_SelectedIndexChanged);
+            this.tabControlGet.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabSub_MouseDoubleClick);
+            // 
+            // tabGetMovies
+            // 
+            this.tabGetMovies.Location = new System.Drawing.Point(4, 29);
+            this.tabGetMovies.Name = "tabGetMovies";
+            this.tabGetMovies.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGetMovies.Size = new System.Drawing.Size(941, 211);
+            this.tabGetMovies.TabIndex = 0;
+            this.tabGetMovies.Text = "Movies";
+            this.tabGetMovies.UseVisualStyleBackColor = true;
+            // 
+            // tabGetGames
+            // 
+            this.tabGetGames.Location = new System.Drawing.Point(4, 29);
+            this.tabGetGames.Name = "tabGetGames";
+            this.tabGetGames.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGetGames.Size = new System.Drawing.Size(941, 211);
+            this.tabGetGames.TabIndex = 1;
+            this.tabGetGames.Text = "Games";
+            this.tabGetGames.UseVisualStyleBackColor = true;
+            // 
+            // tabGetAnime
+            // 
+            this.tabGetAnime.Location = new System.Drawing.Point(4, 29);
+            this.tabGetAnime.Name = "tabGetAnime";
+            this.tabGetAnime.Size = new System.Drawing.Size(941, 211);
+            this.tabGetAnime.TabIndex = 2;
+            this.tabGetAnime.Text = "Anime";
+            this.tabGetAnime.UseVisualStyleBackColor = true;
+            // 
+            // tabGetBooks
+            // 
+            this.tabGetBooks.Location = new System.Drawing.Point(4, 29);
+            this.tabGetBooks.Name = "tabGetBooks";
+            this.tabGetBooks.Size = new System.Drawing.Size(941, 211);
+            this.tabGetBooks.TabIndex = 3;
+            this.tabGetBooks.Text = "Books";
+            this.tabGetBooks.UseVisualStyleBackColor = true;
+            // 
             // NotedumpMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -395,6 +468,8 @@
             this.tabControlLinks.ResumeLayout(false);
             this.NDstatusStrip.ResumeLayout(false);
             this.NDstatusStrip.PerformLayout();
+            this.tabMainGet.ResumeLayout(false);
+            this.tabControlGet.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,6 +506,12 @@
         private System.Windows.Forms.ToolStripMenuItem MenuStrip_saveAll;
         private System.Windows.Forms.StatusStrip NDstatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel NDstatusStripLabel;
+        private System.Windows.Forms.TabPage tabMainGet;
+        private System.Windows.Forms.TabControl tabControlGet;
+        private System.Windows.Forms.TabPage tabGetMovies;
+        private System.Windows.Forms.TabPage tabGetGames;
+        private System.Windows.Forms.TabPage tabGetAnime;
+        private System.Windows.Forms.TabPage tabGetBooks;
     }
 }
 

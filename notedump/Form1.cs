@@ -390,6 +390,6 @@ namespace notedump
                 nd_a_movies = true;
                 nd_active[8] = true;
             }
-        }       
+        }
     }
 }

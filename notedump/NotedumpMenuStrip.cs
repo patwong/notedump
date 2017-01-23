@@ -25,6 +25,8 @@ namespace notedump
         private bool nd_a_music_all = false, nd_a_music_ind = false, nd_a_music_met = false;
         //td
         private bool nd_a_td_rem = false, nd_a_td_td = false;
+        //get
+        private bool nd_g_anime = false, nd_g_books = false, nd_g_games = false;
 
         //all the code regarding the menustrip
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

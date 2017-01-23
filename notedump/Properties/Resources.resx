@@ -118,6 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="nd_get_anime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nd_get_anime.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="nd_get_books" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nd_get_books.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="nd_get_games" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nd_get_games.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="nd_links_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\nd_links_all.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

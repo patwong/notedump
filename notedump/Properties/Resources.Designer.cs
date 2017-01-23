@@ -61,6 +61,33 @@ namespace notedump.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to anime file.
+        /// </summary>
+        internal static string nd_get_anime {
+            get {
+                return ResourceManager.GetString("nd_get_anime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to books.
+        /// </summary>
+        internal static string nd_get_books {
+            get {
+                return ResourceManager.GetString("nd_get_books", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to games.
+        /// </summary>
+        internal static string nd_get_games {
+            get {
+                return ResourceManager.GetString("nd_get_games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to all links.
         /// </summary>
         internal static string nd_links_all {
