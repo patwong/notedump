@@ -16,7 +16,8 @@ namespace notedump
             if (this.WindowState == FormWindowState.Maximized)
             {
                 //this.Hide();
-                MessageBox.Show(this.WindowState.ToString());
+                //MessageBox.Show(this.WindowState.ToString());
+                Console.WriteLine("windows maximized!");
             }
         }
     }

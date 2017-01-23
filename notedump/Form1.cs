@@ -47,7 +47,7 @@ namespace notedump
             /******************************************************/
 
  
-            //9 is the number of hardcoded pages
+            //13 is the number of hardcoded pages (num_pages)
             activetabs = new int[num_pages];
             activetab_rtb_name = new string[num_pages];
             subtabfile = new string[num_pages];
@@ -138,7 +138,7 @@ namespace notedump
                         break;
                     case 12:
                         tabarray[i] = tabGetMovies;
-                        activetab_rtb_name[i] = "pageRTB_Movies";
+                        activetab_rtb_name[i] = "pageRTB_MoviesGet";
                         subtabfile[i] = "nd_get_movies.txt";
                         activetab_name[i] = "Movies";
                         break;
@@ -198,9 +198,14 @@ namespace notedump
                 {
                     NDstatusStripLabel.Text = "active tab: TD";
                 }
+                else if (tabControlMain.SelectedTab == tabMainGet)
+                {
+                    NDstatusStripLabel.Text = "active tab: Get";
+                }
             }
             else if (tabControlEvent == tabControlMusic)
             {
+                NDstatusStripLabel.Text = "active tab: Music";
                 if (tabControlMusic.SelectedTab == tabMusicPlus)
                 {
                     tabName = "MusicTab";
@@ -225,6 +230,7 @@ namespace notedump
             }
             else if (tabControlEvent == tabControlLinks)
             {
+                NDstatusStripLabel.Text = "active tab: Links";
                 if (tabControlLinks.SelectedTab == tabLinksPlus)
                 {
                     tabName = "LinksTab";
@@ -245,7 +251,8 @@ namespace notedump
             }
             else if (tabControlEvent == tabControlTD)
             {
-                if(tabControlTD.SelectedTab == tabTDRemind)
+                NDstatusStripLabel.Text = "active tab: TD";
+                if (tabControlTD.SelectedTab == tabTDRemind)
                 {
                     NDstatusStripLabel.Text = "active tab: " + activetab_name[0];
                     set_active_tab(0);
@@ -258,7 +265,8 @@ namespace notedump
             }
             else if (tabControlEvent == tabControlGet)
             {
-                if(tabControlGet.SelectedTab == tabGetAnime)
+                NDstatusStripLabel.Text = "active tab: Get";
+                if (tabControlGet.SelectedTab == tabGetAnime)
                 {
                     NDstatusStripLabel.Text = "active tab: " + activetab_name[9];
                     set_active_tab(9);
@@ -308,26 +316,17 @@ namespace notedump
             {
                 if (tabControlMusic.SelectedTab == tabMusicAll)
                 {
-                    pageRTB.Name = activetab_rtb_name[2];
-                    pageRTB.LoadFile(subtabfile[2], RichTextBoxStreamType.PlainText);
-                    nd_a_music_all = true;
-                    nd_active[2] = true;
+                    tabMouseDoubleClick_Factored(2, pageRTB);
                     NDstatusStripLabel.Text = "music all activated!";
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicIndie)
                 {
-                    pageRTB.Name = activetab_rtb_name[3];
-                    pageRTB.LoadFile(subtabfile[3], RichTextBoxStreamType.PlainText);
-                    nd_a_music_ind = true;
-                    nd_active[3] = true;
+                    tabMouseDoubleClick_Factored(3, pageRTB);
                     NDstatusStripLabel.Text = "music indie activated!";
                 }
                 else if (tabControlMusic.SelectedTab == tabMusicMetal)
                 {
-                    pageRTB.Name = activetab_rtb_name[4];
-                    pageRTB.LoadFile(subtabfile[4], RichTextBoxStreamType.PlainText);
-                    nd_active[4] = true;
-                    nd_a_music_met = true;
+                    tabMouseDoubleClick_Factored(4, pageRTB);
                     NDstatusStripLabel.Text = "music metal activated!";
                 }
             }
@@ -335,26 +334,17 @@ namespace notedump
             {
                 if (tabControlLinks.SelectedTab == tabLinksAll)
                 {
-                    pageRTB.Name = activetab_rtb_name[5];
-                    pageRTB.LoadFile(subtabfile[5], RichTextBoxStreamType.PlainText);
-                    nd_active[5] = true;
-                    nd_a_links_all = true;
+                    tabMouseDoubleClick_Factored(5, pageRTB);
                     NDstatusStripLabel.Text = "links all activated!";
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksArticles)
                 {
-                    pageRTB.Name = activetab_rtb_name[7];
-                    pageRTB.LoadFile(subtabfile[7], RichTextBoxStreamType.PlainText);
-                    nd_active[7] = true;
-                    nd_a_links_arts = true;
+                    tabMouseDoubleClick_Factored(7, pageRTB);
                     NDstatusStripLabel.Text = "links articles activated!";
                 }
                 else if (tabControlLinks.SelectedTab == tabLinksYT)
                 {
-                    pageRTB.Name = activetab_rtb_name[6];
-                    pageRTB.LoadFile(subtabfile[6], RichTextBoxStreamType.PlainText);
-                    nd_a_links_yt = true;
-                    nd_active[6] = true;
+                    tabMouseDoubleClick_Factored(6, pageRTB);
                     NDstatusStripLabel.Text = "links youtube activated!";
                 }
             }
@@ -362,17 +352,11 @@ namespace notedump
             {
                 if (tabControlTD.SelectedTab == tabTDRemind)
                 {
-                    pageRTB.Name = activetab_rtb_name[0];
-                    pageRTB.LoadFile(subtabfile[0], RichTextBoxStreamType.PlainText);
-                    nd_active[0] = true;
-                    nd_a_td_rem = true;
+                    tabMouseDoubleClick_Factored(0, pageRTB);
                     NDstatusStripLabel.Text = "td remind activated!";
                 } else if (tabControlTD.SelectedTab == tabTDTD)
                 {
-                    pageRTB.Name = activetab_rtb_name[1];
-                    pageRTB.LoadFile(subtabfile[1], RichTextBoxStreamType.PlainText);
-                    nd_a_td_td = true;
-                    nd_active[1] = true;
+                    tabMouseDoubleClick_Factored(1, pageRTB);
                     NDstatusStripLabel.Text = "td td activated!";
                 }
             }
@@ -383,19 +367,23 @@ namespace notedump
                 //9: anime, 10: books, 11: games, 12: movies (get)
                 if (tabControlGet.SelectedTab == tabGetAnime)
                 {
-                    pageRTB.Name = activetab_rtb_name[9];
-                    pageRTB.LoadFile(subtabfile[9], RichTextBoxStreamType.PlainText);
-                    nd_active[9] = true;
-                    nd_a_get_anime = true;
+                    tabMouseDoubleClick_Factored(9, pageRTB);
                     NDstatusStripLabel.Text = "get - anime activated!";
                 }
                 else if(tabControlGet.SelectedTab == tabGetBooks)
                 {
-                    pageRTB.Name = activetab_rtb_name[10];
-                    pageRTB.LoadFile(subtabfile[10], RichTextBoxStreamType.PlainText);
-                    nd_active[10] = true;
                     tabMouseDoubleClick_Factored(10, pageRTB);
                     NDstatusStripLabel.Text = "get - books activated!";
+                }
+                else if(tabControlGet.SelectedTab == tabGetGames)
+                {
+                    tabMouseDoubleClick_Factored(11, pageRTB);
+                    NDstatusStripLabel.Text = "get - games activated";
+                }
+                else if(tabControlGet.SelectedTab == tabGetMovies)
+                {
+                    tabMouseDoubleClick_Factored(12, pageRTB);
+                    NDstatusStripLabel.Text = "get - movies activated";
                 }
             }
             NDstatusStrip.Refresh();
@@ -466,7 +454,6 @@ namespace notedump
                 pageRTB.Dock = DockStyle.Fill;                
                 pageRTB.Name = activetab_rtb_name[8];
                 pageRTB.LoadFile(subtabfile[8], RichTextBoxStreamType.PlainText);
-                nd_a_movies = true;
                 nd_active[8] = true;
             }
         }

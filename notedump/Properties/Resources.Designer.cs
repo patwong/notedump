@@ -61,7 +61,8 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to anime file.
+        ///   Looks up a localized string similar to anime
+        ///.
         /// </summary>
         internal static string nd_get_anime {
             get {
@@ -79,7 +80,8 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to games.
+        ///   Looks up a localized string similar to games
+        ///.
         /// </summary>
         internal static string nd_get_games {
             get {
@@ -97,7 +99,7 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to links articles.
+        ///   Looks up a localized string similar to links - articles.
         /// </summary>
         internal static string nd_links_arts {
             get {
@@ -106,7 +108,8 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to youtube links.
+        ///   Looks up a localized string similar to links - youtube
+        ///.
         /// </summary>
         internal static string nd_links_yt {
             get {
@@ -115,7 +118,7 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movies.
+        ///   Looks up a localized string similar to get - movies.
         /// </summary>
         internal static string nd_movies {
             get {
@@ -124,7 +127,7 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to hello hello!.
+        ///   Looks up a localized string similar to music - all.
         /// </summary>
         internal static string nd_music_all {
             get {
@@ -133,9 +136,9 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to indie music
-        ///band1
-        ///band2.
+        ///   Looks up a localized string similar to music - indie
+        ///- band1
+        ///- band2.
         /// </summary>
         internal static string nd_music_indie {
             get {
@@ -144,7 +147,9 @@ namespace notedump.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to metal band.
+        ///   Looks up a localized string similar to music - metal
+        ///- band1
+        ///- band2.
         /// </summary>
         internal static string nd_music_metal {
             get {

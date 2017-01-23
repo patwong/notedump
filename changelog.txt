@@ -113,3 +113,15 @@ notedump change log
 - changed File.AppendAllText(...,X) to output correct newline
 - changed "Save All" to simpler version
 - changed "Save All and Exit" to simpler version
+
+
+2017.01.23
+- adding "Get" tab
+	- add event controller
+		- add array values for the four new tabs
+	- add three new text files
+		- simply added as text files, not resources
+		- change property to "copy if newer" to have file persist
+- removed unused hardcoded boolean value for each tab
+	- redundant because array exists
+- removed "maximize"

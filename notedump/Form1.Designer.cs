@@ -51,18 +51,18 @@
             this.tabLinksYT = new System.Windows.Forms.TabPage();
             this.tabLinksArticles = new System.Windows.Forms.TabPage();
             this.tabLinksPlus = new System.Windows.Forms.TabPage();
-            this.tabMainMovies = new System.Windows.Forms.TabPage();
-            this.tabMainPlus = new System.Windows.Forms.TabPage();
-            this.NDtextBox = new System.Windows.Forms.TextBox();
-            this.NDFlushButton = new System.Windows.Forms.Button();
-            this.NDstatusStrip = new System.Windows.Forms.StatusStrip();
-            this.NDstatusStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabMainGet = new System.Windows.Forms.TabPage();
             this.tabControlGet = new System.Windows.Forms.TabControl();
             this.tabGetMovies = new System.Windows.Forms.TabPage();
             this.tabGetGames = new System.Windows.Forms.TabPage();
             this.tabGetAnime = new System.Windows.Forms.TabPage();
             this.tabGetBooks = new System.Windows.Forms.TabPage();
+            this.tabMainMovies = new System.Windows.Forms.TabPage();
+            this.tabMainPlus = new System.Windows.Forms.TabPage();
+            this.NDtextBox = new System.Windows.Forms.TextBox();
+            this.NDFlushButton = new System.Windows.Forms.Button();
+            this.NDstatusStrip = new System.Windows.Forms.StatusStrip();
+            this.NDstatusStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabMainTD.SuspendLayout();
@@ -71,9 +71,9 @@
             this.tabControlMusic.SuspendLayout();
             this.tabMainLinks.SuspendLayout();
             this.tabControlLinks.SuspendLayout();
-            this.NDstatusStrip.SuspendLayout();
             this.tabMainGet.SuspendLayout();
             this.tabControlGet.SuspendLayout();
+            this.NDstatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -321,63 +321,6 @@
             this.tabLinksPlus.Text = "+";
             this.tabLinksPlus.UseVisualStyleBackColor = true;
             // 
-            // tabMainMovies
-            // 
-            this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
-            this.tabMainMovies.Name = "tabMainMovies";
-            this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainMovies.Size = new System.Drawing.Size(955, 250);
-            this.tabMainMovies.TabIndex = 3;
-            this.tabMainMovies.Text = "Movies";
-            this.tabMainMovies.UseVisualStyleBackColor = true;
-            // 
-            // tabMainPlus
-            // 
-            this.tabMainPlus.Location = new System.Drawing.Point(4, 29);
-            this.tabMainPlus.Name = "tabMainPlus";
-            this.tabMainPlus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMainPlus.Size = new System.Drawing.Size(955, 250);
-            this.tabMainPlus.TabIndex = 2;
-            this.tabMainPlus.Text = "+";
-            this.tabMainPlus.UseVisualStyleBackColor = true;
-            // 
-            // NDtextBox
-            // 
-            this.NDtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NDtextBox.Location = new System.Drawing.Point(16, 341);
-            this.NDtextBox.Multiline = true;
-            this.NDtextBox.Name = "NDtextBox";
-            this.NDtextBox.Size = new System.Drawing.Size(803, 98);
-            this.NDtextBox.TabIndex = 2;
-            // 
-            // NDFlushButton
-            // 
-            this.NDFlushButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NDFlushButton.Location = new System.Drawing.Point(859, 349);
-            this.NDFlushButton.Name = "NDFlushButton";
-            this.NDFlushButton.Size = new System.Drawing.Size(117, 80);
-            this.NDFlushButton.TabIndex = 3;
-            this.NDFlushButton.Text = "Flush";
-            this.NDFlushButton.UseVisualStyleBackColor = true;
-            this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick_Factored);
-            // 
-            // NDstatusStrip
-            // 
-            this.NDstatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.NDstatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NDstatusStripLabel});
-            this.NDstatusStrip.Location = new System.Drawing.Point(0, 448);
-            this.NDstatusStrip.Name = "NDstatusStrip";
-            this.NDstatusStrip.Size = new System.Drawing.Size(988, 30);
-            this.NDstatusStrip.TabIndex = 4;
-            this.NDstatusStrip.Text = "NDstatusStrip";
-            // 
-            // NDstatusStripLabel
-            // 
-            this.NDstatusStripLabel.Name = "NDstatusStripLabel";
-            this.NDstatusStripLabel.Size = new System.Drawing.Size(126, 25);
-            this.NDstatusStripLabel.Text = "None Selected";
-            // 
             // tabMainGet
             // 
             this.tabMainGet.Controls.Add(this.tabControlGet);
@@ -442,6 +385,63 @@
             this.tabGetBooks.Text = "Books";
             this.tabGetBooks.UseVisualStyleBackColor = true;
             // 
+            // tabMainMovies
+            // 
+            this.tabMainMovies.Location = new System.Drawing.Point(4, 29);
+            this.tabMainMovies.Name = "tabMainMovies";
+            this.tabMainMovies.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainMovies.Size = new System.Drawing.Size(955, 250);
+            this.tabMainMovies.TabIndex = 3;
+            this.tabMainMovies.Text = "Movies";
+            this.tabMainMovies.UseVisualStyleBackColor = true;
+            // 
+            // tabMainPlus
+            // 
+            this.tabMainPlus.Location = new System.Drawing.Point(4, 29);
+            this.tabMainPlus.Name = "tabMainPlus";
+            this.tabMainPlus.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMainPlus.Size = new System.Drawing.Size(955, 250);
+            this.tabMainPlus.TabIndex = 2;
+            this.tabMainPlus.Text = "+";
+            this.tabMainPlus.UseVisualStyleBackColor = true;
+            // 
+            // NDtextBox
+            // 
+            this.NDtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NDtextBox.Location = new System.Drawing.Point(16, 341);
+            this.NDtextBox.Multiline = true;
+            this.NDtextBox.Name = "NDtextBox";
+            this.NDtextBox.Size = new System.Drawing.Size(803, 98);
+            this.NDtextBox.TabIndex = 2;
+            // 
+            // NDFlushButton
+            // 
+            this.NDFlushButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NDFlushButton.Location = new System.Drawing.Point(859, 349);
+            this.NDFlushButton.Name = "NDFlushButton";
+            this.NDFlushButton.Size = new System.Drawing.Size(117, 80);
+            this.NDFlushButton.TabIndex = 3;
+            this.NDFlushButton.Text = "Flush";
+            this.NDFlushButton.UseVisualStyleBackColor = true;
+            this.NDFlushButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NDFlushButton_MouseClick_Factored);
+            // 
+            // NDstatusStrip
+            // 
+            this.NDstatusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.NDstatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NDstatusStripLabel});
+            this.NDstatusStrip.Location = new System.Drawing.Point(0, 448);
+            this.NDstatusStrip.Name = "NDstatusStrip";
+            this.NDstatusStrip.Size = new System.Drawing.Size(988, 30);
+            this.NDstatusStrip.TabIndex = 4;
+            this.NDstatusStrip.Text = "NDstatusStrip";
+            // 
+            // NDstatusStripLabel
+            // 
+            this.NDstatusStripLabel.Name = "NDstatusStripLabel";
+            this.NDstatusStripLabel.Size = new System.Drawing.Size(126, 25);
+            this.NDstatusStripLabel.Text = "None Selected";
+            // 
             // NotedumpMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -466,10 +466,10 @@
             this.tabControlMusic.ResumeLayout(false);
             this.tabMainLinks.ResumeLayout(false);
             this.tabControlLinks.ResumeLayout(false);
-            this.NDstatusStrip.ResumeLayout(false);
-            this.NDstatusStrip.PerformLayout();
             this.tabMainGet.ResumeLayout(false);
             this.tabControlGet.ResumeLayout(false);
+            this.NDstatusStrip.ResumeLayout(false);
+            this.NDstatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

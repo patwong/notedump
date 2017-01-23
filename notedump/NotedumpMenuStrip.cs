@@ -17,18 +17,8 @@ namespace notedump
         //format: nd_a_{cat}_{sub}
         //cat: category, i.e. links, movies, music, td
         //sub: subcategory, i.e. all, arts, yt, etc.
-        //links
-        private bool nd_a_links_all = false, nd_a_links_arts = false, nd_a_links_yt = false;
-        //movies
-        private bool nd_a_movies = false;
-        //music
-        private bool nd_a_music_all = false, nd_a_music_ind = false, nd_a_music_met = false;
-        //td
-        private bool nd_a_td_rem = false, nd_a_td_td = false;
-        //get
-        private bool nd_a_get_anime = false, nd_a_get_books = false, nd_a_get_games = false, nd_a_get_movies = false;
-
         //all the code regarding the menustrip
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //exits without saving
@@ -40,7 +30,7 @@ namespace notedump
         //when menu tabs are changed
         private void get_active_tab(object sender, EventArgs e)
         {
-            for (int c = 0; c < 9; c++)
+            for (int c = 0; c < num_pages; c++)
             {
                 if (activetabs[c] == 1)
                 {
@@ -53,10 +43,9 @@ namespace notedump
 
         private void saveAllClick(object sender, EventArgs e)
         {
-            int len = 9;
             Control[] rtb;
             RichTextBox rtb69;
-            for(int i = 0; i < len; i++)
+            for(int i = 0; i < num_pages; i++)
             {
                 if(nd_active[i])
                 {
